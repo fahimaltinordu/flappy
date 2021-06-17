@@ -98,6 +98,7 @@ $(function () {
     function stop_the_game() {
         clearInterval(the_game);
         game_over = true;
+        document.getElementById("restart_btn").style.display = "flex";
         restart_btn.slideDown();
     }
 
