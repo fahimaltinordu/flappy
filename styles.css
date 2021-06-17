@@ -40,12 +40,7 @@ body {
   font-size: 15px;
   margin-bottom:5px;
 }
-.mycanvas {
-  border:5px solid #0b52ff;
-  margin-left:auto;
-  margin-right:auto;
-  display:block;
-}
+
 
 #container {
   position: relative;
