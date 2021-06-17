@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>ILCOIN HODL</title>
+  </head>
+  <body>
+   <div class="brand">
+     <img src="img/ilc.svg" class="logo" alt="ilcoin-logo">
+     <div class="wrapper">
+      <p class = "p1">ILCOIN HODL</p>
+      <p class = "p2">How long can you HODL? Press "space" to jump </p>
+     </div>
+   </div>
+
+   <div id="container">
+      <div id="bird"></div>
+      <div id="pole_1" class="pole"></div>
+      <div id="pole_2" class="pole"></div>
+      <div id="restart_btn">
+        <button id="restart_btn1">Restart</button>
+      </div>
+   </div>
+
+   <div id="score_div">
+      <p>
+        <b>Balance: </b>
+        <span id="score">0.0000</span>
+        <span id="ilc">ILC</span>
+      </p>
+      <p><b>Speed: </b><span id="speed">5</span></p>
+   </div>
+
+   
+
+
+   <script src="js/jquery.min.js"></script>
+   <script src="js/game.js"></script>
+  </body>
+</html>
