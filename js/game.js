@@ -1,28 +1,3 @@
-$(document).ready(function () {
-    var isTouchDevice = 'ontouchstart' in document.documentElement;
-    
-    $("#touchSensitive").mousedown(function(event) {
-        if (isTouchDevice == false) {   
-            pushed();   
-        }
-    });
-    $("#touchSensitive").mouseup(function(event) {
-        if (isTouchDevice == false) {   
-            released(); 
-        }
-    });
-    $('#touchSensitive').on('touchstart', function(){
-        if (isTouchDevice)  {   
-            pushed();   
-        }
-    });
-    $('#touchSensitive').on('touchend', function(){
-        if (isTouchDevice)  {   
-            released(); 
-        }
-    });
-});
-
 // audio files
 var flapsound = new Audio();
 var earnilc = new Audio();
@@ -155,6 +130,16 @@ $(function () {
         e.preventDefault();
     }, false);
     
+    function touchSF() {
+        if (go_up === false && game_over === false) {
+            go_up = setInterval(up, 50);
+        }  
+    }
+    function touchSE() {
+            go_up = setInterval(up, 50);clearInterval(go_up);
+            go_up = false;  
+    }
+
 
     function go_down() {
         bird.css('top', parseInt(bird.css('top')) + 5);
