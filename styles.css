@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 * {
   margin:0;
   padding:0;
   box-sizing: border-box;
   text-decoration: none;
+  font-family: 'Press Start 2P', Stencil Std, sans-serif, cursive;
 }
 body {
   background-color: lightGray;
-  font-family: Stencil Std, sans-serif;
   max-height:100vh; 
 }
 .brand {
@@ -31,14 +32,14 @@ body {
   color: rgb(255, 255, 255);
   text-shadow: 2px 1px #000000;
   user-select:none;
+  margin-bottom:5px;
 }
 .brand .wrapper .p1 {
-  font-size: 45px;
+  font-size: 30px;
   text-align:center;
 }
 .brand .wrapper .p2 {
-  font-size: 15px;
-  margin-bottom:5px;
+  font-size: 10px;
 }
 
 
@@ -51,6 +52,31 @@ body {
   margin-left: auto;
   margin-right:auto;
   overflow: hidden;
+  position:relative;
+}
+#container #sound {
+  cursor:pointer;
+  position: absolute;
+  bottom:10px;
+  right:10px;
+  width:30px;
+  height:30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#0b52ff;
+  font-size:18px;
+  outline:0;
+  border:0;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+  border-radius:50%;
+  transition:transform 0.3s ease
+}
+#container #sound:active {
+  transform:scale(0.88);
+}
+#container #sound:hover {
+  background-color: #fff;
 }
 #bird {
   position: absolute;
@@ -77,8 +103,11 @@ body {
 }
 #score_div {
   text-align: center;
-  font-size: 40px;
+  font-size: 20px;
   margin-top:10px;
+}
+#score_div p:not(:nth-of-type(2)) {
+  margin-bottom:10px;
 }
 #score_div #ilc {
   color:#0b52ff;
@@ -101,9 +130,9 @@ body {
   align-items: center;
 }
 #restart_btn1, #submit_score {
-  font-size: 35px;
+  font-size: 22px;
   font-weight: 800;
-  padding:5px 20px;
+  padding:15px 20px;
   cursor: pointer;
   border-radius: 7px;
   outline:0;
@@ -112,41 +141,61 @@ body {
   user-select: none;
 }
 #submit_score {
-  margin-top:10px;
+  margin-top:22px;
 }
 
-@media screen and (max-width:700px) {
-  #container {
-    width:90%;
-  }
+@media screen and (max-width:850px) {
   .brand {
     width:90%;
   }
+  #container {
+    width:90%;
+  }
+  #restart_btn1, #submit_score {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width:700px) {
   #score_div {
-    font-size: 30px;
+    font-size: 15px;
+  }
+  .brand .wrapper .p1 {
+    font-size: 25px;
+  }
+  .brand .wrapper .p2 {
+    font-size: 8px;
+  }
+}
+@media screen and (max-width:566px) {
+  .brand .wrapper .p2 {
+    font-size: 7px;
+  }
+}
+@media screen and (max-width:515px) {
+  .brand .wrapper .p2 {
+    display:none;
+  }
+  .brand .wrapper .p1 {
+    margin-bottom:0;
   }
 }
 
 @media screen and (max-width:480px) {
-  .brand .wrapper .p1 {
-    font-size: 36px;
-  }
-  .brand .wrapper .p2 {
-    font-size: 12px;
-  }
   #restart_btn1, #submit_score {
-    font-size: 20px;
+    font-size: 13px;
   }
 }
 @media screen and (max-width:427px) {
   .brand .wrapper .p1 {
-    font-size: 26px;
-  }
-  .brand .wrapper .p2 {
-    display:none;
+    font-size: 22px;
   }
   #score_div {
-    font-size: 20px;
+    font-size: 10px;
+  }
+}
+@media screen and (max-width:292px) {
+  .brand .wrapper .p1 {
+    font-size: 16px;
   }
 }
 

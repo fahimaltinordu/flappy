@@ -1,11 +1,9 @@
 // audio files
 var flapsound = new Audio();
-var restartsound = new Audio();
 var earnilc = new Audio();
 var hitsound = new Audio();
 var themeMusic = new Audio();
 
-restartsound.src = "../audio/restart.wav"; 
 earnilc.src = "../audio/earnilc.wav";
 flapsound.src = "../audio/flap.wav"
 hitsound.src = "../audio/hit.wav"
@@ -18,7 +16,8 @@ $( document ).ready(function() {
         var id = $this.attr('id').replace(/btn/, '');
         $this.toggleClass('active');
         if ($this.hasClass('active')){
-            document.getElementById("sound").innerHTML = `<i class="fas fa-volume-up"></i>`;                themeMusic.play();     
+            document.getElementById("sound").innerHTML = `<i class="fas fa-volume-up"></i>`;                
+            themeMusic.play();     
         } else {
             document.getElementById("sound").innerHTML = `<i class="fas fa-volume-mute"></i>`;
             themeMusic.pause();
@@ -48,12 +47,6 @@ $(function () {
     var bird_height = parseInt(bird.height());
     var speed = 5;
 
-    
-
-    
-    
-   
-
     //some other declarations
     var go_up = false;
     var score_updated = false;
@@ -69,7 +62,7 @@ $(function () {
 
         } else {
             var pole_current_position = parseInt(pole.css('right'));
-
+            
             //update the score when the poles have passed the bird successfully
             if (pole_current_position > container_width - bird_left) {
                 if (score_updated === false) {
@@ -140,7 +133,6 @@ $(function () {
     }
 
     restart_btn1.click(function () {
-        restartsound.play();
         location.reload();
     });
 
