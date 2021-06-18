@@ -157,6 +157,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+#restart_btn img {
+  margin-bottom:10px;
+}
+#restart_btn h2 {
+  margin-bottom:40px;
+}
 #restart_btn1, #submit_score {
   font-size: 22px;
   font-weight: 800;
@@ -215,14 +221,13 @@ body {
   .brand {
     display: none;
   }
-
   #container {
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: 100vh; 
     height: calc(var(--vh, 1vh) * 100);
     width:100%;
   }
   .pole {
-    height:calc(50vh - 80px);
+    height:calc(50vh - 100px);
   }
 }
 
