@@ -115,30 +115,36 @@ $(function () {
         }
     });
 
-    document.getElementById("flap").addEventListener('mousedown', function (e) {
-        if (e.button === 0 && go_up === false && game_over === false) {
-            go_up = setInterval(up, 50);
-        }         
-    });
-    document.getElementById("flap").addEventListener('mouseup', function (e) {
-        if (e.button === 0 ) {    
-            clearInterval(go_up);
-            go_up = false;   
-        }       
-    }); 
+    // document.getElementById("flap").addEventListener('mousedown', function (e) {
+    //     if (e.button === 0 && go_up === false && game_over === false) {
+    //         go_up = setInterval(up, 50);
+    //     }         
+    // });
+    // document.getElementById("flap").addEventListener('mouseup', function (e) {
+    //     if (e.button === 0 ) {    
+    //         clearInterval(go_up);
+    //         go_up = false;   
+    //     }       
+    // }); 
+    
     document.addEventListener("contextmenu", function(e){  //prevent right click on mouse
         e.preventDefault();
     }, false);
-    
-    function touchSF() {
-        if (go_up === false && game_over === false) {
-            go_up = setInterval(up, 50);
-        }  
-    }
-    function touchSE() {
-            go_up = setInterval(up, 50);clearInterval(go_up);
-            go_up = false;  
-    }
+
+    document.getElementById("flap").addEventListener("touchstart", touchHandler, false);
+    function touchHandler(e) 
+        {
+            if (go_up === false && game_over === false) {
+                e.preventDefault();
+                go_up = setInterval(up, 50);
+            }
+        } 
+    document.getElementById("flap").addEventListener("touchend", function(e){
+        clearInterval(go_up);
+        go_up = false;  
+        e.preventDefault();
+    }, false);
+        
 
 
     function go_down() {
@@ -147,7 +153,7 @@ $(function () {
 
     function up() {
         bird.css('top', parseInt(bird.css('top')) - 12);
-        // flapsound.play();
+        flapsound.play();
     }
 
     function stop_the_game() {
