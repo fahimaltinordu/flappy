@@ -70,13 +70,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: lightgrey;
   color:#0b52ff;
   font-size:18px;
   outline:0;
   border:0;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
   border-radius:50%;
-  transition:transform 0.3s ease
+  transition:transform 0.3s ease;
 }
 #container #sound:active {
   transform:scale(0.88);
@@ -140,9 +141,18 @@ body {
   border:0;
   box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
   user-select: none;
+  background-color: lightgrey;
+  color:#0b52ff;
+  transition:transform 0.3s ease;
 }
 #submit_score {
   margin-top:22px;
+}
+#restart_btn1:active, #submit_score:active {
+  transform:scale(0.88);
+}
+#restart_btn1:hover, #submit_score:hover {
+  background-color: #fff;
 }
 
 @media screen and (max-width:850px) {

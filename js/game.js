@@ -106,6 +106,9 @@ $(function () {
             go_up = setInterval(up, 50);
         }
     });
+    // $(document).on('click', function (e) {
+    //         go_up = setInterval(up, 50);        
+    // });
 
     $(document).on('keyup', function (e) {
         var key = e.keyCode;
@@ -129,7 +132,7 @@ $(function () {
         clearInterval(the_game);
         game_over = true;
         document.getElementById("restart_btn").style.display = "flex";
-        document.getElementById("score_div").style.color = "white";
+        document.getElementById("score_div").style.color = "lightgray";
         restart_btn.slideDown();
     }
 
