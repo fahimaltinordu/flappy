@@ -5,6 +5,8 @@
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Press Start 2P', Stencil Std, sans-serif, cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
 }
 body {
   background-color: lightGray;
@@ -184,7 +186,7 @@ body {
     font-size: 13px;
   }
   #score_div {
-    font-size: 7px;
+    font-size: 8px;
   }
 }
 @media screen and (max-width:427px) {

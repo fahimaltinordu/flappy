@@ -121,7 +121,7 @@ $(function () {
     }
 
     function up() {
-        bird.css('top', parseInt(bird.css('top')) - 10);
+        bird.css('top', parseInt(bird.css('top')) - 12);
         flapsound.play();
     }
 
@@ -129,6 +129,7 @@ $(function () {
         clearInterval(the_game);
         game_over = true;
         document.getElementById("restart_btn").style.display = "flex";
+        document.getElementById("score_div").style.color = "white";
         restart_btn.slideDown();
     }
 
