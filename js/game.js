@@ -102,14 +102,14 @@ $(function () {
 
     $(document).on('keydown', function (e) {
         var key = e.keyCode;
-        if (key === 32 && go_up === false && game_over === false) {
+        if (key === 38 && go_up === false && game_over === false) {
             go_up = setInterval(up, 50);
         }
     });
 
     $(document).on('keyup', function (e) {
         var key = e.keyCode;
-        if (key === 32) {
+        if (key === 38) {
             clearInterval(go_up);
             go_up = false;
         }

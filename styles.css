@@ -32,14 +32,18 @@ body {
   color: rgb(255, 255, 255);
   text-shadow: 2px 1px #000000;
   user-select:none;
-  margin-bottom:5px;
+  
 }
 .brand .wrapper .p1 {
   font-size: 30px;
   text-align:center;
+  margin-bottom:5px;
 }
 .brand .wrapper .p2 {
   font-size: 10px;
+}
+.brand .wrapper .p2 span {
+  font-size: 16px;
 }
 
 
@@ -102,19 +106,21 @@ body {
   bottom: 0;
 }
 #score_div {
-  text-align: center;
-  font-size: 20px;
+  font-size: 10px;
   margin-top:10px;
+  z-index: 99;
+  position:absolute;
+  left:5px;
+  
 }
 #score_div p:not(:nth-of-type(2)) {
   margin-bottom:10px;
 }
 #score_div #ilc {
-  color:#0b52ff;
-  margin-left:10px;
+  color:#000000;
 }
 #score_div #score, #score_div #speed {
-  color:#0b52ff;
+  color:#000000;
 }
 #restart_btn {
   position: absolute;
@@ -156,9 +162,6 @@ body {
   }
 }
 @media screen and (max-width:700px) {
-  #score_div {
-    font-size: 15px;
-  }
   .brand .wrapper .p1 {
     font-size: 25px;
   }
@@ -169,6 +172,9 @@ body {
 @media screen and (max-width:566px) {
   .brand .wrapper .p2 {
     font-size: 7px;
+  }
+  #score_div {
+    font-size: 8px;
   }
 }
 @media screen and (max-width:515px) {
@@ -184,13 +190,13 @@ body {
   #restart_btn1, #submit_score {
     font-size: 13px;
   }
+  #score_div {
+    font-size: 6px;
+  }
 }
 @media screen and (max-width:427px) {
   .brand .wrapper .p1 {
     font-size: 22px;
-  }
-  #score_div {
-    font-size: 10px;
   }
 }
 @media screen and (max-width:292px) {
