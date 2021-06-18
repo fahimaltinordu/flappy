@@ -159,6 +159,8 @@ body {
 }
 #restart_btn img {
   margin-bottom:10px;
+  filter: drop-shadow(0 0 0.15rem black);
+  user-select:none;
 }
 #restart_btn h2 {
   margin-bottom:40px;
