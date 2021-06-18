@@ -1,3 +1,31 @@
+// audio files
+var flapsound = new Audio();
+var restartsound = new Audio();
+var earnilc = new Audio();
+var hitsound = new Audio();
+var themeMusic = new Audio();
+
+restartsound.src = "../audio/restart.wav"; 
+earnilc.src = "../audio/earnilc.wav";
+flapsound.src = "../audio/flap.wav"
+hitsound.src = "../audio/hit.wav"
+themeMusic.src = "../audio/themeMusic.mp3"
+
+$( document ).ready(function() {
+    themeMusic.play(); 
+    $('#sound').click(function(){
+        var $this = $(this);
+        var id = $this.attr('id').replace(/btn/, '');
+        $this.toggleClass('active');
+        if ($this.hasClass('active')){
+            document.getElementById("sound").innerHTML = `<i class="fas fa-volume-up"></i>`;                themeMusic.play();     
+        } else {
+            document.getElementById("sound").innerHTML = `<i class="fas fa-volume-mute"></i>`;
+            themeMusic.pause();
+        }
+    });
+});
+
 $(function () {
 
     //saving dom objects to variables
@@ -20,6 +48,12 @@ $(function () {
     var bird_height = parseInt(bird.height());
     var speed = 5;
 
+    
+
+    
+    
+   
+
     //some other declarations
     var go_up = false;
     var score_updated = false;
@@ -27,13 +61,13 @@ $(function () {
 
 
     var the_game = setInterval(function () {
-
+        
         if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height) {
 
             stop_the_game();
+            hitsound.play();
 
         } else {
-
             var pole_current_position = parseInt(pole.css('right'));
 
             //update the score when the poles have passed the bird successfully
@@ -41,6 +75,8 @@ $(function () {
                 if (score_updated === false) {
                     score.text((parseFloat(score.text()) + 0.0001).toFixed(4));
                     score_updated = true;
+                    earnilc.play();
+
                 }
             }
 
@@ -93,6 +129,7 @@ $(function () {
 
     function up() {
         bird.css('top', parseInt(bird.css('top')) - 10);
+        flapsound.play();
     }
 
     function stop_the_game() {
@@ -103,6 +140,7 @@ $(function () {
     }
 
     restart_btn1.click(function () {
+        restartsound.play();
         location.reload();
     });
 

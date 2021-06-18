@@ -6,7 +6,7 @@
 }
 body {
   background-color: lightGray;
-  font-family: Stencil Std, fantasy;
+  font-family: Stencil Std, sans-serif;
   max-height:100vh; 
 }
 .brand {
@@ -109,6 +109,7 @@ body {
   outline:0;
   border:0;
   box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.5);
+  user-select: none;
 }
 #submit_score {
   margin-top:10px;
@@ -147,7 +148,6 @@ body {
   #score_div {
     font-size: 20px;
   }
-  
 }
 
 @media screen and (max-height:569px) {
