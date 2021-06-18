@@ -211,12 +211,16 @@ body {
     display: block;
   }
 }
-@media screen and (max-width:515px) {
-  .brand .wrapper .p2 {
-    display:none;
+@media screen and (max-width:540px) {
+  .brand {
+    display: none;
   }
-  .brand .wrapper .p1 {
-    margin-bottom:0;
+  #container {
+    height: 100vh;
+    width:100%;
+  }
+  .pole {
+    height:calc(50vh - 80px);
   }
 }
 
@@ -226,18 +230,5 @@ body {
   }
   #score_div {
     font-size: 8px;
-  }
-  .brand .wrapper .p1 {
-    line-height: 1.5;
-  }
-}
-@media screen and (max-width:427px) {
-  .brand .wrapper .p1 {
-    font-size: 22px;
-  }
-}
-@media screen and (max-width:292px) {
-  .brand .wrapper .p1 {
-    font-size: 16px;
   }
 }
