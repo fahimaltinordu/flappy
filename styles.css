@@ -166,6 +166,9 @@ body {
   margin-bottom:40px;
   text-shadow: 2px 1px #000000;
   user-select:none;
+  filter: drop-shadow(0 0 0.15rem black);
+  text-align: center;
+  line-height:1.5;
 }
 #restart_btn1, #submit_score {
   font-size: 22px;
