@@ -10,10 +10,10 @@ hitsound.src = "../audio/hit.wav"
 themeMusic.src = "../audio/themeMusic.mp3"
 
 $( document ).ready(function() {
-    themeMusic.play(); 
+    // themeMusic.play(); 
     $('#sound').click(function(){
         var $this = $(this);
-        var id = $this.attr('id').replace(/btn/, '');
+        // var id = $this.attr('id').replace(/btn/, '');
         $this.toggleClass('active');
         if ($this.hasClass('active')){
             document.getElementById("sound").innerHTML = `<i class="fas fa-volume-up"></i>`;                
@@ -57,8 +57,8 @@ $(function () {
         
         if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height) {
 
-            stop_the_game();
             hitsound.play();
+            stop_the_game();
 
         } else {
             var pole_current_position = parseInt(pole.css('right'));
