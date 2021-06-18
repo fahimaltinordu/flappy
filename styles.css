@@ -162,6 +162,8 @@ body {
 }
 #restart_btn h2 {
   margin-bottom:40px;
+  text-shadow: 2px 1px #000000;
+  user-select:none;
 }
 #restart_btn1, #submit_score {
   font-size: 22px;
