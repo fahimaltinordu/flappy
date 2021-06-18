@@ -134,6 +134,7 @@ $(function () {
         document.getElementById("restart_btn").style.display = "flex";
         document.getElementById("score_div").style.color = "lightgray";
         restart_btn.slideDown();
+        document.getElementById("flap").style.display = "none";
     }
 
     restart_btn1.click(function () {
