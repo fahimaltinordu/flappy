@@ -1,3 +1,28 @@
+$(document).ready(function () {
+    var isTouchDevice = 'ontouchstart' in document.documentElement;
+    
+    $("#touchSensitive").mousedown(function(event) {
+        if (isTouchDevice == false) {   
+            pushed();   
+        }
+    });
+    $("#touchSensitive").mouseup(function(event) {
+        if (isTouchDevice == false) {   
+            released(); 
+        }
+    });
+    $('#touchSensitive').on('touchstart', function(){
+        if (isTouchDevice)  {   
+            pushed();   
+        }
+    });
+    $('#touchSensitive').on('touchend', function(){
+        if (isTouchDevice)  {   
+            released(); 
+        }
+    });
+});
+
 // audio files
 var flapsound = new Audio();
 var earnilc = new Audio();
