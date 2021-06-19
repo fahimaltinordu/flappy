@@ -31,6 +31,8 @@ $( document ).ready(function() {
     });
 });
 
+
+
 $(function () {
 
     //saving dom objects to variables
@@ -74,23 +76,25 @@ $(function () {
             var element = document.getElementById("pole_1");
             element.classList.add("poleCrash");
             gameover.play();
-            // setTimeout(function(){
-            //     document.getElementById("pole_1").style.backgroundColor = "#0b52ff";
-            // },3000); 
+
         } else if (collision(bird, pole_2)) {
             var element = document.getElementById("pole_2");
             element.classList.add("poleCrash");
             gameover.play();
-            // setTimeout(function(){
-            //     document.getElementById("pole_2").style.backgroundColor = "#0b52ff";
-            // },3000); 
         }
 
-
+        
         if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height) {
 
             hitsound.play();
-            themeMusic.pause();  
+            themeMusic.pause(); 
+            
+            var kayma = container_height - bird_height;
+            var coin = document.getElementById("bird");
+            coin.style.top = `${kayma}px`;
+
+            coin.style.transform = 'rotate(180deg)';
+            coin.style.transition = "top 2s, transform 2s";
             document.getElementById("gameover").style.display = "flex";
             stop_the_game();
 
@@ -149,27 +153,14 @@ $(function () {
             go_up = false;
         }
     });
-
-    // document.getElementById("flap").addEventListener('mousedown', function (e) {
-    //     if (e.button === 0 && go_up === false && game_over === false) {
-    //         go_up = setInterval(up, 50);
-    //     }         
-    // });
-    // document.getElementById("flap").addEventListener('mouseup', function (e) {
-    //     if (e.button === 0 ) {    
-    //         clearInterval(go_up);
-    //         go_up = false;   
-    //     }       
-    // }); 
     
     document.addEventListener("contextmenu", function(e){  //prevent right click on mouse
         e.preventDefault();
     }, false);
 
     document.getElementById("flap").addEventListener("touchstart", touchHandler, false);
-    function touchHandler(e) 
-        {
-            if (go_up === false && game_over === false) {
+    function touchHandler(e) {    
+        if (go_up === false && game_over === false) {
                 e.preventDefault();
                 go_up = setInterval(up, 50);
             }
@@ -179,8 +170,7 @@ $(function () {
         go_up = false;  
         e.preventDefault();
     }, false);
-        
-
+    
 
     function go_down() {
         document.getElementById("bird").style.transform = 'rotate(45deg)';
