@@ -69,7 +69,7 @@ $(function () {
             element.classList.add("crash");
             gameover.play();
             setTimeout(function(){
-                document.getElementById("container").style.borderColor = "white";
+                document.getElementById("container").style.borderColor = "#0b52ff";
             },3000); 
         }
         if (collision(bird, pole_1)) {
