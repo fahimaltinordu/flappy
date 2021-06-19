@@ -59,7 +59,7 @@ $(function () {
 
 
     var the_game = setInterval(function () {
-        if (parseInt(bird.css('top')) <= 0) {
+        if (parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height) {
             var element = document.getElementById("container");
             element.classList.add("crash");
 
