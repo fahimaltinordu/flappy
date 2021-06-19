@@ -183,10 +183,12 @@ $(function () {
 
 
     function go_down() {
+        document.getElementById("bird").style.transform = 'rotate(45deg)';
         bird.css('top', parseInt(bird.css('top')) + 5);
     }
 
     function up() {
+        document.getElementById("bird").style.transform = 'rotate(0deg)';
         bird.css('top', parseInt(bird.css('top')) - 12);
         flapsound.play();
     }
