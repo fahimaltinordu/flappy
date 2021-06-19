@@ -8,11 +8,13 @@ var flapsound = new Audio();
 var earnilc = new Audio();
 var hitsound = new Audio();
 var themeMusic = new Audio();
+var gameover = new Audio();
 
 earnilc.src = "../audio/earnilc.wav";
 flapsound.src = "../audio/flap.wav"
 hitsound.src = "../audio/hit.wav"
 themeMusic.src = "../audio/themeMusic.mp3"
+gameover.src = "../audio/over.wav"
 
 $( document ).ready(function() {
     // themeMusic.play(); 
@@ -59,14 +61,32 @@ $(function () {
 
 
     var the_game = setInterval(function () {
+        
         if (parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height) {
             var element = document.getElementById("container");
             element.classList.add("crash");
-
+            gameover.play();
             setTimeout(function(){
                 document.getElementById("container").style.borderColor = "white";
             },3000); 
         }
+        if (collision(bird, pole_1)) {
+            var element = document.getElementById("pole_1");
+            element.classList.add("poleCrash");
+            gameover.play();
+            setTimeout(function(){
+                document.getElementById("pole_1").style.backgroundColor = "#0b52ff";
+            },3000); 
+        } else if (collision(bird, pole_2)) {
+            var element = document.getElementById("pole_2");
+            element.classList.add("poleCrash");
+            gameover.play();
+            setTimeout(function(){
+                document.getElementById("pole_2").style.backgroundColor = "#0b52ff";
+            },3000); 
+        }
+
+
         if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height) {
 
             hitsound.play();
