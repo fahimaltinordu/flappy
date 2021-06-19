@@ -48,6 +48,14 @@ body {
   font-size: 16px;
 }
 
+#container.crash {
+  border-color:red;
+  animation: blink 0.5s;
+  animation-iteration-count: 6;
+}
+
+@keyframes blink { 50% { border-color:#fff ; }  }
+
 
 #container {
   position: relative;
@@ -120,7 +128,11 @@ body {
   background-repeat: no-repeat;
   top: 20%;
   left: 10%;
+  filter:drop-shadow(2px 2px 0.5rem rgba(0,0,0,0.9));
 }
+
+
+
 .pole {
   position: absolute;
   height: calc(50vh - 130px);
@@ -193,6 +205,10 @@ body {
 #restart_btn1:hover, #submit_score:hover {
   background-color: #fff;
 }
+
+
+
+
 
 @media screen and (max-width:850px) {
   .brand {

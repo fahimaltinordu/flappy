@@ -59,7 +59,14 @@ $(function () {
 
 
     var the_game = setInterval(function () {
-        
+        if (parseInt(bird.css('top')) <= 0) {
+            var element = document.getElementById("container");
+            element.classList.add("crash");
+
+            setTimeout(function(){
+                document.getElementById("container").style.borderColor = "white";
+            },3000); 
+        }
         if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height) {
 
             hitsound.play();
@@ -87,7 +94,7 @@ $(function () {
                 pole_2.css('height', pole_initial_height - new_height);
 
                 //increase speed
-                speed = speed + 1;
+                speed = speed + 0.5;
                 speed_span.text(speed);
 
                 score_updated = false;
@@ -164,10 +171,12 @@ $(function () {
     function stop_the_game() {
         clearInterval(the_game);
         game_over = true;
-        document.getElementById("restart_btn").style.display = "flex";
-        document.getElementById("score_div").style.color = "lightgray";
-        restart_btn.slideDown();
-        document.getElementById("flap").style.display = "none";
+        setTimeout(function(){
+            document.getElementById("restart_btn").style.display = "flex";
+            document.getElementById("score_div").style.color = "lightgray";
+            restart_btn.slideDown();
+            document.getElementById("flap").style.display = "none";
+         },3000); 
     }
 
     restart_btn1.click(function () {
