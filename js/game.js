@@ -17,7 +17,6 @@ themeMusic.src = "../audio/themeMusic.mp3"
 gameover.src = "../audio/over.wav"
 
 $( document ).ready(function() {
-    // themeMusic.play(); 
     $('#sound').click(function(){
         var $this = $(this);
         // var id = $this.attr('id').replace(/btn/, '');
@@ -41,6 +40,7 @@ $(function () {
     var pole_1 = $('#pole_1');
     var pole_2 = $('#pole_2');
     var score = $('#score');
+    var score1 = $('#score1');
     var speed_span = $('#speed');
     var restart_btn = $('#restart_btn');
     var restart_btn1 = $('#restart_btn1');
@@ -74,22 +74,24 @@ $(function () {
             var element = document.getElementById("pole_1");
             element.classList.add("poleCrash");
             gameover.play();
-            setTimeout(function(){
-                document.getElementById("pole_1").style.backgroundColor = "#0b52ff";
-            },3000); 
+            // setTimeout(function(){
+            //     document.getElementById("pole_1").style.backgroundColor = "#0b52ff";
+            // },3000); 
         } else if (collision(bird, pole_2)) {
             var element = document.getElementById("pole_2");
             element.classList.add("poleCrash");
             gameover.play();
-            setTimeout(function(){
-                document.getElementById("pole_2").style.backgroundColor = "#0b52ff";
-            },3000); 
+            // setTimeout(function(){
+            //     document.getElementById("pole_2").style.backgroundColor = "#0b52ff";
+            // },3000); 
         }
 
 
         if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height) {
 
             hitsound.play();
+            themeMusic.pause();  
+            document.getElementById("gameover").style.display = "flex";
             stop_the_game();
 
         } else {
@@ -99,6 +101,7 @@ $(function () {
             if (pole_current_position > container_width - bird_left) {
                 if (score_updated === false) {
                     score.text((parseFloat(score.text()) + 0.0001).toFixed(4));
+                    score1.text((parseFloat(score1.text()) + 0.0001).toFixed(4));
                     score_updated = true;
                     earnilc.play();
 
@@ -192,6 +195,7 @@ $(function () {
         clearInterval(the_game);
         game_over = true;
         setTimeout(function(){
+            document.getElementById("gameover").style.display = "none";
             document.getElementById("restart_btn").style.display = "flex";
             document.getElementById("score_div").style.color = "lightgray";
             restart_btn.slideDown();
