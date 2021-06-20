@@ -42,7 +42,7 @@ $(function () {
     var pole_1 = $('#pole_1');
     var pole_2 = $('#pole_2');
     var score = $('#score');
-    var score1 = $('#score1');
+    var score1 = $('.score1');
     var speed_span = $('#speed');
     var restart_btn = $('#restart_btn');
     var restart_btn1 = $('#restart_btn1');
