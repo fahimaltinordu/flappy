@@ -46,10 +46,12 @@ $(function () {
     var speed_span = $('#speed');
     var restart_btn = $('#restart_btn');
     var restart_btn1 = $('#restart_btn1');
+    var grand = $('.grand');
 
     //saving some initial setup
     var container_width = parseInt(container.width());
     var container_height = parseInt(container.height());
+    var grand_height = parseInt(grand.height());
     var pole_initial_position = parseInt(pole.css('right'));
     var pole_initial_height = parseInt(pole.css('height'));
     var bird_left = parseInt(bird.css('left'));
@@ -64,7 +66,7 @@ $(function () {
 
     var the_game = setInterval(function () {
         
-        if (parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height  - 100) {
+        if (parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height  - grand_height) {
             var element = document.getElementById("container");
             element.classList.add("crash");
             gameover.play();
@@ -84,7 +86,7 @@ $(function () {
         }
 
         
-        if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height - 100 ) {
+        if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height - grand_height ) {
 
             hitsound.play();
             themeMusic.pause(); 
