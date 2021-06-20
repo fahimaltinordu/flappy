@@ -64,7 +64,7 @@ $(function () {
 
     var the_game = setInterval(function () {
         
-        if (parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height) {
+        if (parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height  - 100) {
             var element = document.getElementById("container");
             element.classList.add("crash");
             gameover.play();
@@ -84,7 +84,7 @@ $(function () {
         }
 
         
-        if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height) {
+        if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height - 100 ) {
 
             hitsound.play();
             themeMusic.pause(); 
@@ -94,7 +94,7 @@ $(function () {
             coin.style.top = `${kayma}px`;
 
             coin.style.transform = 'rotate(180deg)';
-            coin.style.transition = "top 2s, transform 2s";
+            coin.style.transition = "top 2s, transform 1s";
             document.getElementById("gameover").style.display = "flex";
             stop_the_game();
 
