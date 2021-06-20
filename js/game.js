@@ -51,11 +51,11 @@ $(function () {
     //saving some initial setup
     var container_width = parseInt(container.width());
     var container_height = parseInt(container.height());
-    var grand_height = parseInt(grand.height());
     var pole_initial_position = parseInt(pole.css('right'));
     var pole_initial_height = parseInt(pole.css('height'));
     var bird_left = parseInt(bird.css('left'));
     var bird_height = parseInt(bird.height());
+    var grand_height = parseInt(grand.height());
     var speed = 4;
 
     //some other declarations
@@ -91,7 +91,7 @@ $(function () {
             hitsound.play();
             themeMusic.pause(); 
             
-            var kayma = container_height - bird_height;
+            var kayma = container_height - bird_height - grand_height;
             var coin = document.getElementById("bird");
             coin.style.top = `${kayma}px`;
 
