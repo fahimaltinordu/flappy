@@ -8,6 +8,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; 
 }
+:root {
+  --hole:80px;
+}
 body {
   background-color: lightGray;
   max-height:100vh; 
@@ -170,7 +173,8 @@ body {
 
 .pole {
   position: absolute;
-  height: calc(50vh - 130px);
+  /* height: calc(50vh - 130px); */
+  height: calc((var(--vh, 1vh) * 100) / 2 - var(--hole)*2);
   width: 50px;
   background-color: #0b52ff;
   right: -50px;
@@ -290,7 +294,8 @@ body {
     width:100%;
   }
   .pole {
-    height:calc(50vh - 100px);
+    /* height:calc(50vh - 100px); */
+    height: calc((var(--vh, 1vh) * 100) / 2 - var(--hole));
   }
 }
 
@@ -300,5 +305,17 @@ body {
   }
   #score_div {
     font-size: 8px;
+  }
+}
+
+@media screen and (max-height:400px) {
+  .brand {
+    display: none;
+  }
+  #container {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  .pole {
+    height: calc((var(--vh, 1vh) * 100) / 2 - var(--hole));
   }
 }
