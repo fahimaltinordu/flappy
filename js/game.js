@@ -19,7 +19,6 @@ gameover.src = "../audio/over.wav"
 $( document ).ready(function() {
     $('#sound').click(function(){
         var $this = $(this);
-        // var id = $this.attr('id').replace(/btn/, '');
         $this.toggleClass('active');
         if ($this.hasClass('active')){
             document.getElementById("sound").innerHTML = `<i class="fas fa-volume-up"></i>`;                
@@ -34,10 +33,7 @@ $( document ).ready(function() {
 
 
 function play() {
-    document.getElementById("play").style.display="none";
     document.getElementById("backdrop").style.display="none";
-    document.getElementById("intro").style.display="none";
-    document.getElementById("information").style.display="none";
 
 
     //saving dom objects to variables

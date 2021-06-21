@@ -75,80 +75,6 @@ body {
   margin-right:auto;
   overflow: hidden;
 }
-#container #play {
-  position: absolute;
-  left:50%;
-  bottom:2%;
-  transform: translateX(-50%);
-  padding:10px;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 20001;
-  font-size: 16px;
-  color:#0b52ff;
-  outline:0;
-  border:0;
-  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
-  user-select: none;
-  background-color: lightgrey;
-  width:50%;
-  height:60px;
-  transition:transform 0.3s ease;
-  text-shadow: 2px 1px #000000;
-}
-
-#container #play:hover {
-  background-color: #fff;
-}
-#container #intro {
-  position: absolute;
-  top:70%;
-  left:50%;
-  transform: translate(-50%, -70%);
-  z-index: 20001;
-  filter: drop-shadow(0 0 0.15rem black);
-  width: 100%;
-  text-align: center;
-}
-#container #intro h2 {
-  color:#fff;
-  text-shadow: 2px 1px #000000;
-  margin-top:10px;
-  margin-bottom:10px;
-}
-#container #information {
-  position: absolute;
-  top:2%;
-  left:50%;
-  transform: translateX(-50%);
-  z-index: 20001;
-  background-color: lightgrey;
-  color:rgba(0, 0, 0, 0.8);
-  font-size: 14px;
-  border-radius: 7px;
-  width:70%;
-  padding:10px;
-  line-height: 1.25;
-  text-align: justify;
-  margin-bottom:10px;
-  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
-}
-#container #information ul {
-  margin-top:15px;
-}
-#container #information ul li {
-  margin-left:20px;
-  text-align:left;
-}
-#container #information ul li span{
-  margin-left:10px;
-  font-size: 8px;
-}
-#container #information ul li .emoji{
-  margin-left:10px;
-  font-size: 13px;
-}
-
 #container #backdrop {
   position:absolute;
   top:0;
@@ -157,7 +83,79 @@ body {
   height:calc(100vh - 125px);
   background-color: rgb(11, 80, 255);
   z-index: 20000;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  
 }
+#container #backdrop #play {
+  padding:10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  color:#0b52ff;
+  outline:0;
+  border:0;
+  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
+  user-select: none;
+  background-color: lightgrey;
+  width:70%;
+  height:60px;
+  transition:transform 0.3s ease;
+  text-shadow: 2px 1px #000000;
+}
+
+#container #backdrop #play:hover {
+  background-color: #fff;
+}
+#container #backdrop #intro {
+  filter: drop-shadow(0 0 0.15rem black);
+  width: 100%;
+  text-align: center;
+}
+#container #backdrop #intro img {
+  margin-top:10px;
+}
+#container #backdrop #intro h2 {
+  color:#fff;
+  text-shadow: 2px 1px #000000;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+#container #backdrop #information {
+  background-color: lightgrey;
+  color:rgba(0, 0, 0, 0.8);
+  border-radius: 7px;
+  width:70%;
+  padding:10px;
+  line-height: 1.25;
+  text-align: justify;
+  margin-top: 10px;
+  margin-bottom:10px;
+  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
+}
+#container #backdrop #information h2 {
+  font-size: 14px;
+}
+#container #backdrop #information ul {
+  margin-top:15px;
+}
+#container #backdrop #information ul li {
+  margin-left:20px;
+  font-size: 12px;
+  text-align:left;
+}
+#container #backdrop #information ul li span{
+  margin-left:10px;
+  font-size: 8px;
+}
+#container #backdrop #information ul li .emoji{
+  margin-left:10px;
+  font-size: 15px;
+}
+
+
 #container #gameover  {
   width:50%;
   height:90px;
@@ -336,12 +334,14 @@ body {
 #restart_btn1 {
   margin-bottom:22px;
 }
-#restart_btn1 + p {
-  font-size: 14px;
-  color:#34ff0b;
-}
 #submit_score {
   margin-top:22px;
+  color:#34ff0b;
+  font-size: 14px;
+}
+#submit_score .bluetext {
+  font-size: 14px;
+  color:#0b52ff;
 }
 #restart_btn1:active, #submit_score:active {
   transform:scale(0.88);
@@ -375,9 +375,14 @@ body {
   #container #gameover {
     width:80%;
   }
-  #container #play {
-    width:80%;
+  #container #backdrop #play {
+    width:90%;
   }
+  #container #backdrop #information {
+    width:90%;
+    text-align: center;
+  }
+  
 }
 @media screen and (max-width:566px) {
   .brand .wrapper .p2 {
@@ -390,16 +395,10 @@ body {
   .grand #flap {
     display: block;
   }
-  #container #play {
+  #container #backdrop #play {
     font-size: 18px;
   }
-  #container #information {
-    width:90%;
-    text-align: center;
-  }
-  #container #information h3 {
-    font-size: 10px;
-  }
+
 }
 @media screen and (max-width:540px) {
   .brand {
@@ -411,7 +410,6 @@ body {
     width:100%;
   }
   .pole {
-    /* height:calc(50vh - 100px); */
     height: calc((var(--vh, 1vh) * 100) / 2 - var(--hole));
   }
 }
@@ -428,8 +426,8 @@ body {
   .grand .rightside #score_div {
     font-size: 8px;
   }
-  #container #play {
-    font-size: 12px;
+  #container #backdrop #information h2 {
+    font-size: 10px;
   }
 }
 
