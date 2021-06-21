@@ -78,7 +78,7 @@ body {
 #container #play {
   position: absolute;
   left:50%;
-  bottom:10%;
+  bottom:5%;
   transform: translateX(-50%);
   padding:10px;
   border-radius: 5px;
@@ -147,7 +147,7 @@ body {
 }
 #container #information ul li .emoji{
   margin-left:10px;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 #container #backdrop {
