@@ -78,7 +78,7 @@ body {
 #container #play {
   position: absolute;
   left:50%;
-  bottom:5%;
+  bottom:2%;
   transform: translateX(-50%);
   padding:10px;
   border-radius: 5px;
@@ -102,9 +102,9 @@ body {
 }
 #container #intro {
   position: absolute;
-  top:0;
+  top:70%;
   left:50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -70%);
   z-index: 20001;
   filter: drop-shadow(0 0 0.15rem black);
   width: 100%;
@@ -114,12 +114,13 @@ body {
   color:#fff;
   text-shadow: 2px 1px #000000;
   margin-top:10px;
+  margin-bottom:10px;
 }
 #container #information {
   position: absolute;
-  top:50%;
+  top:2%;
   left:50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   z-index: 20001;
   background-color: lightgrey;
   color:rgba(0, 0, 0, 0.8);
@@ -129,7 +130,6 @@ body {
   padding:10px;
   line-height: 1.25;
   text-align: justify;
-  margin-top: 10px;
   margin-bottom:10px;
   box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
 }
@@ -138,7 +138,6 @@ body {
 }
 #container #information ul li {
   margin-left:20px;
-  font-size: 12px;
   text-align:left;
 }
 #container #information ul li span{
@@ -397,7 +396,9 @@ body {
   #container #information {
     width:90%;
     text-align: center;
-    font-size: 12px;
+  }
+  #container #information h3 {
+    font-size: 10px;
   }
 }
 @media screen and (max-width:540px) {
