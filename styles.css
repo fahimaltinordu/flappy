@@ -321,6 +321,7 @@ body {
   line-height:1.5;
 }
 #restart_btn1, #submit_score {
+  width:90%;
   font-size: 22px;
   font-weight: 800;
   padding:15px 20px;
