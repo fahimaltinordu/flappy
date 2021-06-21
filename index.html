@@ -19,10 +19,23 @@
    </div>
 
    <div id="container">
-      <video autoplay muted loop id="myVideo">
-        <source src="img/bg.mp4" type="video/mp4">
-      </video>
-      <div class="backdrop"></div>
+      <button id="play" onclick="play()">Play ILCOIN HODL</button>
+      <div id="intro">
+        <img src="img/ilc.svg" alt="">
+        <h2>ILCOIN HODL</h2> 
+      </div>
+      <div id="information">
+        How long can you hodl ILCOIN without crashing? Let's play and submit your high score for weekly rewards.
+        <ul>
+          <li><span class="emoji">&#9940;</span><span>Don't hit the edges</span></li>
+          <li><span class="emoji">&#9940;</span><span>Don't crash to the pipes</span></li>
+          <li><span class="emoji">&#127918;</span><span>Let's click Play Button</span></li>
+          <li><span class="emoji">&#127919;</span><span>Submit your score</span></li>
+          <li><span class="emoji">&#127942;</span><span>Earn ILCOIN weekly</span></li>
+        </ul>
+      </div>
+      <div id="backdrop"></div>
+
       <div id="bird"></div>
       <div id="pole_1" class="pole"></div>
       <div id="pole_2" class="pole"></div>
@@ -30,7 +43,7 @@
       <div id="restart_btn">
         <img src="img/ilc.svg" alt="">
         <h2>ILCOIN HODL</h2>
-        <button id="restart_btn1">Start</button>
+        <button id="restart_btn1">Restart</button>
         <p>Score: <span class="score1">0.0000</span>
           <span class="ilc">ILC</span>
         </p>

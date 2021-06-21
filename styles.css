@@ -4,6 +4,7 @@
   padding:0;
   box-sizing: border-box;
   text-decoration: none;
+  list-style-type: none;
   font-family: 'Press Start 2P', Stencil Std, sans-serif, cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; 
@@ -69,21 +70,94 @@ body {
   height: calc(100vh - 125px);
   width: 70%;
   border: 4px solid #0b52ff;
-  background-color: aliceblue; 
+  background-color: rgb(55, 55, 56); 
   margin-left: auto;
   margin-right:auto;
   overflow: hidden;
 }
-#myVideo, .backdrop {
+#container #play {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  /* filter:blur(2px); */
+  left:50%;
+  bottom:10%;
+  transform: translateX(-50%);
+  padding:10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 20001;
+  font-size: 16px;
+  color:#0b52ff;
+  outline:0;
+  border:0;
+  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
+  user-select: none;
+  background-color: lightgrey;
+  width:50%;
+  height:60px;
+  transition:transform 0.3s ease;
+  text-shadow: 2px 1px #000000;
 }
-.backdrop {
-  background-color: rgba(0, 0, 0, 0.8);
+
+#container #play:hover {
+  background-color: #fff;
+}
+#container #intro {
+  position: absolute;
+  top:0;
+  left:50%;
+  transform: translateX(-50%);
+  z-index: 20001;
+  filter: drop-shadow(0 0 0.15rem black);
+  width: 100%;
+  text-align: center;
+}
+#container #intro h2 {
+  color:#fff;
+  text-shadow: 2px 1px #000000;
+  margin-top:10px;
+}
+#container #information {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  z-index: 20001;
+  background-color: lightgrey;
+  color:rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  border-radius: 7px;
+  width:70%;
+  padding:10px;
+  line-height: 1.25;
+  text-align: justify;
+  margin-top: 10px;
+  margin-bottom:10px;
+  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
+}
+#container #information ul {
+  margin-top:15px;
+}
+#container #information ul li {
+  margin-left:20px;
+  font-size: 12px;
+  text-align:left;
+}
+#container #information ul li span{
+  margin-left:10px;
+  font-size: 8px;
+}
+#container #information ul li .emoji{
+  margin-left:10px;
+  font-size: 15px;
+}
+
+#container #backdrop {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:calc(100vh - 125px);
+  background-color: rgb(11, 80, 255);
+  z-index: 20000;
 }
 #container #gameover  {
   width:50%;
@@ -302,6 +376,9 @@ body {
   #container #gameover {
     width:80%;
   }
+  #container #play {
+    width:80%;
+  }
 }
 @media screen and (max-width:566px) {
   .brand .wrapper .p2 {
@@ -314,12 +391,20 @@ body {
   .grand #flap {
     display: block;
   }
+  #container #play {
+    font-size: 18px;
+  }
+  #container #information {
+    width:90%;
+    text-align: center;
+    font-size: 12px;
+  }
 }
 @media screen and (max-width:540px) {
   .brand {
     display: none;
   }
-  #container {
+  #container, #container #backdrop {
     height: 100vh; 
     height: calc(var(--vh, 1vh) * 100);
     width:100%;
@@ -341,6 +426,9 @@ body {
 @media screen and (max-width:400px) {
   .grand .rightside #score_div {
     font-size: 8px;
+  }
+  #container #play {
+    font-size: 12px;
   }
 }
 

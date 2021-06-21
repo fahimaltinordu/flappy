@@ -33,7 +33,12 @@ $( document ).ready(function() {
 
 
 
-$(function () {
+function play() {
+    document.getElementById("play").style.display="none";
+    document.getElementById("backdrop").style.display="none";
+    document.getElementById("intro").style.display="none";
+    document.getElementById("information").style.display="none";
+
 
     //saving dom objects to variables
     var container = $('#container');
@@ -221,4 +226,4 @@ $(function () {
 
 
 
-});
+};
