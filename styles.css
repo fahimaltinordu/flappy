@@ -146,6 +146,9 @@ body {
   font-size: 12px;
   text-align:left;
 }
+#container #backdrop #information ul li:not(:nth-of-type(5)) {
+  margin-bottom:2px;
+}
 #container #backdrop #information ul li span{
   margin-left:10px;
   font-size: 8px;
