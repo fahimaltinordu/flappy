@@ -47,6 +47,7 @@ function play() {
     var speed_span = $('#speed');
     var restart_btn = $('#restart_btn');
     var restart_btn1 = $('#restart_btn1');
+    var submitScore = $('#submit_score');
     var grand = $('.grand');
 
     //saving some initial setup
@@ -200,6 +201,10 @@ function play() {
 
     restart_btn1.click(function () {
         location.reload();
+    });
+    submitScore.click(function() {
+        document.getElementById("restart_btn").style.display="none";
+        document.getElementById("scorePopUp").style.display="block";
     });
 
     function collision($div1, $div2) {

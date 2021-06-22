@@ -78,6 +78,26 @@
           </button>
         </div>
      </div>
+
+     <div id="scorePopUp">
+        <form action="score.php" method="post" id="form1">
+          <div class="wrapper">
+            <label for="nickname">Nickname</label>
+            <input type="text" name="nickname" id="nickname">
+          </div>
+          <div class="wrapper">
+            <label for="address">ILC Address</label>
+            <input type="text" name="address" id="address">
+          </div>
+          <div class="wrapper">
+            <label for="ilcscore">Score</label>
+            <input type="number" name="ilcscore" id="ilcscore" readonly>
+          </div>
+          <input type="submit" form="form1" value="Submit Score">
+        </form>
+      </div>
+
+
    </div>
    
 
