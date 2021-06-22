@@ -10,11 +10,11 @@ var hitsound = new Audio();
 var themeMusic = new Audio();
 var gameover = new Audio();
 
-earnilc.src = "audio/earnilc.wav";
-flapsound.src = "audio/flap.wav";
-hitsound.src = "audio/hit.wav";
+earnilc.src = "audio/earnilc.mp3";
+flapsound.src = "audio/flap.mp3";
+hitsound.src = "audio/hit.mp3";
 themeMusic.src = "audio/themeMusic.mp3";
-gameover.src = "audio/over.wav";
+gameover.src = "audio/over.mp3";
 
 $( document ).ready(function() {
     $('#sound').click(function(){
