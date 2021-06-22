@@ -48,6 +48,7 @@ function play() {
     var restart_btn = $('#restart_btn');
     var restart_btn1 = $('#restart_btn1');
     var submitScore = $('#submit_score');
+    var backbutton = $('#backbtn');
     var grand = $('.grand');
 
     //saving some initial setup
@@ -205,6 +206,11 @@ function play() {
     submitScore.click(function() {
         document.getElementById("restart_btn").style.display="none";
         document.getElementById("scorePopUp").style.display="block";
+    });
+    backbutton.click(function(e) {
+        document.getElementById("restart_btn").style.display="flex";
+        document.getElementById("scorePopUp").style.display="none";
+        e.preventDefault();
     });
 
     function collision($div1, $div2) {
