@@ -335,9 +335,9 @@ body {
   color:#0b52ff;
   transition:transform 0.3s ease;
 }
-#restart_btn1 {
+/* #restart_btn1 {
   margin-bottom:22px;
-}
+} */
 #submit_score {
   margin-top:22px;
   color:#ff790b;
