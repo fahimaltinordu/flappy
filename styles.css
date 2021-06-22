@@ -402,7 +402,8 @@ body {
   outline:0;
   box-shadow: 0 0 4px 2px rgba(11, 82, 255, 1);
 }
-#scorePopUp form .wrapper + input[type="submit"], #scorePopUp form .wrapper + input[type="submit"] + #backbtn {
+#scorePopUp form .wrapper + input[type="submit"], 
+#scorePopUp form .wrapper + input[type="submit"] + #backbtn {
   height:50px;
   width:90%;
   font-size: 18px;
@@ -491,6 +492,7 @@ body {
   #scorePopUp form .wrapper label + input {
     width:100%;
     flex:initial;
+    font-size: 16px;
   }
   .pole {
     height: calc((var(--vh, 1vh) * 100) / 2 - var(--hole));

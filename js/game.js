@@ -199,7 +199,7 @@ function play() {
             document.getElementById("flap").style.display = "none";
          },3000); 
     }
-
+    
     restart_btn1.click(function () {
         location.reload();
     });
