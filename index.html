@@ -46,7 +46,7 @@
         <img src="img/ilc.svg" alt="">
         <h2>ILCOIN HODL</h2>
         <button id="restart_btn1">Restart</button>
-        <button id="submit_score">Score: <span class="score1">0.0000</span>
+        <button id="submit_score">Score: <span id="score2">0</span>
           <span class="ilc">ILC</span> <br><br>  <span class="bluetext">Submit Score</span> </button>
       </div>
       
@@ -54,7 +54,7 @@
      <div id="gameover">
         <h2>GAME OVER</h2>
         <p>Balance: <br>
-          <span class="score1">0.0000</span>
+          <span id="score1">0</span>
           <span class="ilc">ILC</span>
         </p>
      </div>
@@ -67,7 +67,7 @@
           <div id="score_div">
             <p>
               <b> Balance: </b>
-              <span id="score">0.0000</span>
+              <span id="score">0</span>
               <span class="ilc">ILC</span>
             </p>
             <p><b>Speed: </b><span id="speed">4</span></p>
@@ -93,7 +93,7 @@
             <label for="ilcscore">Score</label>
             <input type="number" name="ilcscore" id="ilcscore" readonly>
           </div>
-          <input type="submit" form="form1" value="Submit Score">
+          <button id="submitscore" type="submit" >Submit Score</button>
           <button id="backbtn">Cancel</button>
         </form>
       </div>

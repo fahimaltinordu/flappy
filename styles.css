@@ -402,8 +402,8 @@ body {
   outline:0;
   box-shadow: 0 0 4px 2px rgba(11, 82, 255, 1);
 }
-#scorePopUp form .wrapper + input[type="submit"], 
-#scorePopUp form .wrapper + input[type="submit"] + #backbtn {
+#scorePopUp form .wrapper + #submitscore, 
+#scorePopUp form .wrapper + #submitscore + #backbtn {
   height:50px;
   width:90%;
   font-size: 18px;
@@ -416,12 +416,12 @@ body {
   background-color: lightgrey;
   color:#0b52ff;
 }
-#scorePopUp form .wrapper + input[type="submit"]:active,
-#scorePopUp form .wrapper + input[type="submit"] + #backbtn:active {
+#scorePopUp form .wrapper + #submitscore:active,
+#scorePopUp form .wrapper + #submitscore + #backbtn:active {
   transform:scale(0.88);
 }
-#scorePopUp form .wrapper + input[type="submit"]:hover,
-#scorePopUp form .wrapper + input[type="submit"] + #backbtn:hover {
+#scorePopUp form .wrapper + #submitscore:hover,
+#scorePopUp form .wrapper + #submitscore + #backbtn:hover {
   background-color: #fff;
 }
 

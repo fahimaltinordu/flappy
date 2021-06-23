@@ -43,11 +43,13 @@ function play() {
     var pole_1 = $('#pole_1');
     var pole_2 = $('#pole_2');
     var score = $('#score');
-    var score1 = $('.score1');
+    var score1 = $('#score1');
+    var score2 = $('#score2');
     var speed_span = $('#speed');
     var restart_btn = $('#restart_btn');
     var restart_btn1 = $('#restart_btn1');
     var submitScore = $('#submit_score');
+    var submitScorData = $('#submitscore');
     var backbutton = $('#backbtn');
     var grand = $('.grand');
 
@@ -109,8 +111,36 @@ function play() {
             //update the score when the poles have passed the bird successfully
             if (pole_current_position > container_width - bird_left) {
                 if (score_updated === false) {
-                    score.text((parseFloat(score.text()) + 0.0001).toFixed(4));
-                    score1.text((parseFloat(score1.text()) + 0.0001).toFixed(4));
+                    if (speed <= 5) {
+                        score.text((parseInt(score.text()) + 1));
+                        score1.text((parseInt(score1.text()) + 1));
+                        score2.text((parseInt(score2.text()) + 1));
+                    }
+                    if (speed >5 && speed <= 10) {
+                        score.text((parseInt(score.text()) + 2));
+                        score1.text((parseInt(score1.text()) + 2));
+                        score2.text((parseInt(score2.text()) + 2));
+                    }
+                    if (speed >10 && speed <= 15) {
+                        score.text((parseInt(score.text()) + 3));
+                        score1.text((parseInt(score1.text()) + 3));
+                        score2.text((parseInt(score2.text()) + 3));
+                    }
+                    if (speed >15 && speed <= 20) {
+                        score.text((parseInt(score.text()) + 4));
+                        score1.text((parseInt(score1.text()) + 4));
+                        score2.text((parseInt(score2.text()) + 4));
+                    }
+                    if (speed >20 && speed <= 30) {
+                        score.text((parseInt(score.text()) + 5));
+                        score1.text((parseInt(score1.text()) + 5));
+                        score2.text((parseInt(score2.text()) + 5));
+                    }
+                    if (speed >30 ) {
+                        score.text((parseInt(score.text()) + 6));
+                        score1.text((parseInt(score1.text()) + 6));
+                        score2.text((parseInt(score2.text()) + 6));
+                    }
                     score_updated = true;
                     earnilc.play();
 
@@ -203,15 +233,34 @@ function play() {
     restart_btn1.click(function () {
         location.reload();
     });
+    
+
     submitScore.click(function() {
         document.getElementById("restart_btn").style.display="none";
         document.getElementById("scorePopUp").style.display="block";
+        $("#ilcscore").val(parseInt(score.text()));
+
     });
+
+    var useraddress  = localStorage.getItem("useraddress");
+    var usernick  = localStorage.getItem("usernick");
+    $("#address").val(useraddress);
+    $("#nickname").val(usernick);
+    submitScorData.click(function() {
+        var ilcoinaddress = document.getElementById('address').value;
+        var ilcoinnickname = document.getElementById('nickname').value;
+        localStorage.setItem("useraddress", ilcoinaddress);
+        localStorage.setItem("usernick", ilcoinnickname);
+
+    });
+
     backbutton.click(function(e) {
         document.getElementById("restart_btn").style.display="flex";
         document.getElementById("scorePopUp").style.display="none";
         e.preventDefault();
     });
+    
+    
 
     function collision($div1, $div2) {
         var x1 = $div1.offset().left;
