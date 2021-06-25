@@ -67,6 +67,10 @@
             width:90px;
             margin-right:10px;
             text-align:center;
+            font-size:16px;
+        }
+        .wrapper .date input[type="text"]::placeholder {
+            font-size:10px;
         }
         .wrapper .date label {
             color:white;
