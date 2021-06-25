@@ -364,17 +364,33 @@ body {
   display:none;
 }
 #scorePopUp form {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  height:inherit;
+  padding:10px 10px;
+  text-align: center;
+
+  
 }
 #scorePopUp form .wrapper {
   width:90%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+
+}
+#scorePopUp form .wrapper:nth-of-type(3) {
+  margin-bottom:20px;
+}
+#scorePopUp form small {
+  text-align: left;
+  margin-bottom: 15px;
+  display: block;
+  font-size: 10px;
+  color: crimson;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
 #scorePopUp form .wrapper label {
  padding: 0 5px;
@@ -415,6 +431,8 @@ body {
   user-select: none;
   background-color: lightgrey;
   color:#0b52ff;
+  margin-bottom: 10px;
+
 }
 #scorePopUp form .wrapper + #submitscore:active,
 #scorePopUp form .wrapper + #submitscore + #backbtn:active {
@@ -424,6 +442,8 @@ body {
 #scorePopUp form .wrapper + #submitscore + #backbtn:hover {
   background-color: #fff;
 }
+
+
 
 
 @media screen and (max-width:850px) {

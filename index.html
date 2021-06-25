@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/a90a45c743.js" crossorigin="anonymous"></script> 
     <title>ILCOIN HODL</title>
+    <style>
+      #scorePopUp form .wrapper + #submitscore:disabled {
+        opacity: 0.7;
+        color: #666666;
+        cursor: not-allowed;
+      }
+    </style>
   </head>
   <body>
    <div class="brand">
@@ -78,31 +85,54 @@
         </div>
      </div>
 
+
+
+
      <div id="scorePopUp">
-        <form action="score.php" method="post" id="form1">
+        <form action="add.php" method="post" id="form1">
           <div class="wrapper">
             <label for="nickname">Nickname</label>
-            <input type="text" name="nickname" id="nickname">
+            <input type="text" name="nickname" id="nickname" maxlength="16">
           </div>
+          <small>max 16 characters</small>
           <div class="wrapper">
             <label for="address">ILC Address</label>
-            <input type="text" name="address" id="address">
+            <input type="text" name="address" id="address" >
           </div>
+          <small>only ILCOIN address</small>
           <div class="wrapper">
             <label for="ilcscore">Score</label>
             <input type="number" name="ilcscore" id="ilcscore" readonly>
           </div>
-          <button id="submitscore" type="submit" >Submit Score</button>
+          <button id="submitscore" type="submit" name="ScoreSubmission" >Submit Score</button>
           <button id="backbtn">Cancel</button>
         </form>
       </div>
 
+     
 
    </div>
    
-
-
    <script src="js/jquery.min.js"></script>
    <script src="js/game.js"></script>
+   
+   <script>
+     document.getElementById("submit_score").addEventListener('click', function() {
+      if ($('#nickname').val().length != 0 || $('#address').val().length != 0) {
+          $('#submitscore').attr('disabled', false); 
+        } else {
+          $('#submitscore').attr('disabled',true);
+        }
+     })
+      
+
+      $('#nickname, #address').keyup(function(){
+        if($('#nickname').val().length !=0 && $('#address').val().length !=0)
+            $('#submitscore').attr('disabled', false);           
+        else
+            $('#submitscore').attr('disabled',true);
+      })
+     
+   </script>
   </body>
 </html>
