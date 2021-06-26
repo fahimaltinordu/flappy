@@ -376,7 +376,7 @@ body {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 
 }
 #scorePopUp form .wrapper:nth-of-type(3) {
@@ -384,9 +384,9 @@ body {
 }
 #scorePopUp form small {
   text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   display: block;
-  font-size: 10px;
+  font-size: 9px;
   color: crimson;
   margin-left: auto;
   margin-right: auto;
@@ -508,6 +508,11 @@ body {
     width:100%;
     margin-right:0;
     margin-bottom:5px;
+    height: 30px;
+    line-height: 30px;
+  }
+  #scorePopUp form small {
+    font-size: 8px;
   }
   #scorePopUp form .wrapper label + input {
     width:100%;
