@@ -138,5 +138,27 @@
       });
      
    </script>
+
+  <?php
+    function isMobileDevice() {
+        return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo
+    |fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i"
+    , $_SERVER["HTTP_USER_AGENT"]);
+    }
+    if(isMobileDevice()){?>
+      <script>
+      document.getElementById("flap").style.display = "block";
+    </script>
+    <?php
+    }
+    else { ?>
+      <script>
+        document.getElementById("flap").style.display = "none";
+        $('.grand .rightside')[0].style.flex="1";
+        $('.grand .rightside #score_div')[0].style.alignSelf = "initial";
+      </script>
+    <?php }
+    ?>
+    
   </body>
 </html>
