@@ -204,7 +204,9 @@ body {
   z-index: 9997;
 }
 .grand {
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #b5b6bd 50%, #1c1e2b 100%);
+  background: #1b2735; 
+  background: -webkit-linear-gradient(to right, #0c0f15, #f5f5f5, #0c0f15); 
+  background: linear-gradient(to right, #0c0f15, #f5f5f5, #0c0f15);
   width:100%;
   height:100px;
   position: absolute;
@@ -272,6 +274,8 @@ body {
   align-self:flex-start;
   justify-self: flex-end;
   font-size: 12px;
+  color:#efeff0;
+  text-shadow: 2px 1px #000000;
 }
 .grand .rightside #score_div p:not(:nth-of-type(2)) {
   margin-bottom:10px;
