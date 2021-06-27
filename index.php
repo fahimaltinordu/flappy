@@ -27,7 +27,6 @@
    </div>
 
    <div id="container">
-      
       <div id="backdrop">
         <div id="intro">
           <img src="img/ilc.svg" alt="">
@@ -49,7 +48,11 @@
       <div id="bird"></div>
       <div id="pole_1" class="pole"></div>
       <div id="pole_2" class="pole"></div>
-      
+      <div id='stars'></div>
+      <div id='stars2'></div>
+      <div id='stars3'></div>
+
+
       <div id="restart_btn">
         <img src="img/ilc.svg" alt="">
         <h2>ILCOIN HODL</h2>
