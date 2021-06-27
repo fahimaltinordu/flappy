@@ -4,21 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ILC HODL SCOREBOARD</title>
+    <link rel="shortcut icon" href="img/ilc.svg" type="image/x-icon">
+    <title>SCOREBOARD</title>
     <!-- CSS -->
     <link href='css/jquery-ui.min.css' rel='stylesheet' type='text/css'>
 
-    <!-- Script -->
-    <script src='jquery.js' type='text/javascript'></script>
-    <script src='jquery-ui.js' type='text/javascript'></script>
-    <script src='jquery-ui.min.js' type='text/javascript'></script>
-    <script type='text/javascript'>
-    $(document).ready(function(){
-    $('.dateFilter').datepicker({
-        dateFormat: "yy-mm-dd"
-    });
-    });
-    </script>
+   
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         * {
@@ -261,5 +252,17 @@
 
         </table>
     </div>
+
+     <!-- Script -->
+     <script src='js/jquery.js' type='text/javascript'></script>
+    <script src='js/jquery-ui.js' type='text/javascript'></script>
+    <script src='js/jquery-ui.min.js' type='text/javascript'></script>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+        $('.dateFilter').datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+        });
+    </script>
 </body>
 </html>

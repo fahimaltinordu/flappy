@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ILC HODL</title>
+    <link rel="shortcut icon" href="img/ilc.svg" type="image/x-icon">
+    <title>ILC SCORE</title>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
     * {
@@ -78,7 +79,7 @@
                 <script>
                 setTimeout(function(){
                     document.getElementById("notificationS").style.display="none";
-                    location.href="score.php";
+                    location.href="index.php";
                 }, 3000);
             </script>
             <?php    
@@ -89,7 +90,7 @@
                 <script>
                 setTimeout(function(){
                     document.getElementById("notificationF").style.display="none";
-                    location.href="score.php";
+                    location.href="index.php";
                 }, 3000);
             </script>
             <?php } 

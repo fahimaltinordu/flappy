@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/7d5dd4076f.js" crossorigin="anonymous"></script> 
     <title>ILCOIN HODL</title>
+
     <style>
       #scorePopUp form .wrapper + #submitscore:disabled {
         opacity: 0.7;
@@ -122,7 +123,6 @@
           $('#submitscore').attr('disabled',true);
         }
      })
-      
 
       $('#nickname, #address').keyup(function(){
         if($('#nickname').val().length !=0 && $('#address').val().length !=0)
@@ -139,7 +139,7 @@
      
    </script>
 
-  <?php
+    <?php
     function isMobileDevice() {
         return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo
     |fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i"
@@ -159,6 +159,6 @@
       </script>
     <?php }
     ?>
-    
+
   </body>
 </html>

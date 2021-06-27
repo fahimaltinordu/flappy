@@ -35,7 +35,6 @@ $( document ).ready(function() {
 function play() {
     document.getElementById("backdrop").style.display="none";
 
-
     //saving dom objects to variables
     var container = $('#container');
     var bird = $('#bird');
@@ -226,7 +225,7 @@ function play() {
             document.getElementById("restart_btn").style.display = "flex";
             document.getElementById("score_div").style.color = "lightgray";
             restart_btn.slideDown();
-            document.getElementById("flap").style.display = "none";
+            // document.getElementById("flap").style.display = "none";
          },3000); 
     }
     
