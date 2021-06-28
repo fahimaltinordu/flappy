@@ -198,10 +198,10 @@
         <!-- Search filter -->
         <form class="date" method='post' action='' autocomplete="off">
             <label for="dateFilter1">Start Date</label>
-            <input id="dateFilter1" type='text' class='dateFilter' placeholder="start date" name='fromDate' value='<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>'>
+            <input id="dateFilter1" type='text' class='dateFilter' placeholder="start date" name='fromDate' readonly="readonly" value='<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>'>
         
             <label for="dateFilter2">End Date</label>
-            <input id="dateFilter2" type='text' class='dateFilter' placeholder="end date" name='endDate' value='<?php if(isset($_POST['endDate'])) echo $_POST['endDate']; ?>'>
+            <input id="dateFilter2" type='text' class='dateFilter' placeholder="end date" name='endDate' readonly="readonly" value='<?php if(isset($_POST['endDate'])) echo $_POST['endDate']; ?>'>
 
             <input type='submit' name='but_search' value='Search' onclick="cleardate()">
         </form>
