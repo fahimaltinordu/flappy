@@ -157,7 +157,7 @@
         }
         @media screen and (max-width:400px) {
             table {
-                font-size:9px;
+                font-size:7px;
             }
             .wrapper h1 {
                 font-size: 12px;
