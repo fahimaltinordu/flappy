@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate" />
     <link rel="shortcut icon" href="img/ilc.svg" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/7d5dd4076f.js" crossorigin="anonymous"></script> 
