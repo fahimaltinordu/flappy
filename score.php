@@ -59,6 +59,8 @@
             margin-right:10px;
             text-align:center;
             font-size:16px;
+            height: 24px;
+            line-height: 24px;
         }
         
         .wrapper .date label {
@@ -67,7 +69,7 @@
             margin-right:10px;
         }
         .wrapper .date input[type="submit"] {
-            height:19px;
+            height:24px;
             width:90px;
             background-color: #fff;
             color:#1f1f21;
