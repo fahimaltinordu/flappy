@@ -60,9 +60,7 @@
             text-align:center;
             font-size:16px;
         }
-        .wrapper .date input[type="text"]::placeholder {
-            font-size:10px;
-        }
+        
         .wrapper .date label {
             color:white;
             font-size:12px;
@@ -83,7 +81,7 @@
             margin-left:auto;
             margin-right:auto;
             color:white;
-            background-color: #ef002d;
+            background-color: #3c3436;
             font-size:14px;
         }
         th, td {
@@ -130,6 +128,9 @@
         #connectFail {
             background-color:red;
         }
+        .date .dateFilter {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        }
         @media screen and (max-width:900px) {
             table {
                 font-size:12px;
@@ -147,6 +148,11 @@
             }
             .wrapper .date label {
                 display:none;
+            }
+            #ui-datepicker-div {
+                width: 100%!important;
+                left:50% !important;
+                transform:translateX(-50%)!important;
             }
         }
         @media screen and (max-width:400px) {
