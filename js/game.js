@@ -59,48 +59,63 @@ function play() {
     var pole_initial_height = parseInt(pole.css('height'));
     var bird_left = parseInt(bird.css('left'));
     var bird_height = parseInt(bird.height());
+    var bird_width = parseInt(bird.width());
     var grand_height = parseInt(grand.height());
-    var speed = 4;
 
+    const mediaQuery = window.matchMedia('(max-width: 540px)');
+                if (mediaQuery.matches) {
+                    var speed = 6;
+                    document.getElementById('speed').innerHTML="6";
+                } else {
+                    var speed = 10;
+                    document.getElementById('speed').innerHTML="10";
+                }
+    
     //some other declarations
     var go_up = false;
+    var go_dw = false;
     var score_updated = false;
     var game_over = false;
-
+    var poletop = false;
 
     var the_game = setInterval(function () {
         
         if (parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height  - grand_height) {
             var element = document.getElementById("container");
             element.classList.add("crash");
-            gameover.play();
             setTimeout(function(){
                 document.getElementById("container").style.borderColor = "#0b52ff";
             },3000); 
         }
+        
         if (collision(bird, pole_1)) {
             var element = document.getElementById("pole_1");
             element.classList.add("poleCrash");
-            gameover.play();
 
         } else if (collision(bird, pole_2)) {
             var element = document.getElementById("pole_2");
             element.classList.add("poleCrash");
-            gameover.play();
+ 
         }
 
         
         if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height - grand_height ) {
-
-            hitsound.play();
-            themeMusic.pause(); 
+            
+            if (!$('#sound').hasClass('active')){
+                hitsound.pause();
+                gameover.pause();
+            } else {
+                hitsound.play();
+                themeMusic.pause(); 
+                gameover.play();
+            } 
             
             var kayma = container_height - bird_height - grand_height;
             var coin = document.getElementById("bird");
-            coin.style.top = `${kayma}px`;
-
-            coin.style.transform = 'rotate(180deg)';
-            coin.style.transition = "top 2s, transform 1s";
+            // coin.style.top = `${kayma}px`;
+            coin.classList.add("downing");
+            // coin.style.transform = 'rotate(180deg)';
+            // coin.style.transition = "top 3s";
             document.getElementById("gameover").style.display = "flex";
             stop_the_game();
 
@@ -108,29 +123,29 @@ function play() {
             var pole_current_position = parseInt(pole.css('right'));
             
             //update the score when the poles have passed the bird successfully
-            if (pole_current_position > container_width - bird_left) {
+            if (pole_current_position > container_width - bird_left - bird_width) {
                 if (score_updated === false) {
-                    if (speed <= 5) {
+                    if (speed <= 10) {
                         score.text((parseInt(score.text()) + 1));
                         score1.text((parseInt(score1.text()) + 1));
                         score2.text((parseInt(score2.text()) + 1));
                     }
-                    if (speed >5 && speed <= 10) {
+                    if (speed >10 && speed <= 15) {
                         score.text((parseInt(score.text()) + 2));
                         score1.text((parseInt(score1.text()) + 2));
                         score2.text((parseInt(score2.text()) + 2));
                     }
-                    if (speed >10 && speed <= 15) {
+                    if (speed >15 && speed <= 20) {
                         score.text((parseInt(score.text()) + 3));
                         score1.text((parseInt(score1.text()) + 3));
                         score2.text((parseInt(score2.text()) + 3));
                     }
-                    if (speed >15 && speed <= 20) {
+                    if (speed >20 && speed <= 25) {
                         score.text((parseInt(score.text()) + 4));
                         score1.text((parseInt(score1.text()) + 4));
                         score2.text((parseInt(score2.text()) + 4));
                     }
-                    if (speed >20 && speed <= 30) {
+                    if (speed >25 && speed <= 30) {
                         score.text((parseInt(score.text()) + 5));
                         score1.text((parseInt(score1.text()) + 5));
                         score2.text((parseInt(score2.text()) + 5));
@@ -141,19 +156,31 @@ function play() {
                         score2.text((parseInt(score2.text()) + 6));
                     }
                     score_updated = true;
-                    earnilc.play();
+                    if (!$('#sound').hasClass('active')){
+                        earnilc.pause();
+                    } else {
+                        earnilc.play();
+                    }
 
                 }
             }
 
             //check whether the poles went out of the container
             if (pole_current_position > container_width) {
-                var new_height = parseInt(Math.random() * 130);
+               
+                var new_height = Math.floor(Math.random() * 100);
+                if (poletop===false){
+                    //change the pole's height
+                    pole_1.css('height', pole_initial_height - new_height);
+                    pole_2.css('height', pole_initial_height + new_height);
+                    poletop=true;
+                } else if (poletop===true) {
+                    pole_1.css('height', pole_initial_height + new_height);
+                    pole_2.css('height', pole_initial_height - new_height);
+                    poletop=false;
+                }
 
-                //change the pole's height
-                pole_1.css('height', pole_initial_height - new_height);
-                pole_2.css('height', pole_initial_height + new_height);
-
+                
                 //increase speed
                 speed = speed + 0.5;
                 speed_span.text(speed);
@@ -165,19 +192,16 @@ function play() {
 
             //move the poles
             pole.css('right', pole_current_position + speed);
-
-            if (go_up === false) {
-                go_down();
-            }
         }
 
     }, 40);
 
+    //flap up & down with keys
     $(document).on('keydown', function (e) {
         var key = e.keyCode;
         if (key === 38 && go_up === false && game_over === false) {
             go_up = setInterval(up, 50);
-        }
+        } 
     });
 
     $(document).on('keyup', function (e) {
@@ -185,15 +209,49 @@ function play() {
         if (key === 38) {
             clearInterval(go_up);
             go_up = false;
+            document.getElementById("bird").style.transform = 'rotate(0deg)';
         }
     });
-    
-    document.addEventListener("contextmenu", function(e){  //prevent right click on mouse
+
+    $(document).on('keydown', function (e) {
+        var key = e.keyCode;
+        if (key === 40 && go_dw === false && game_over === false) {
+            go_dw = setInterval(go_down, 50);
+        }
+    });
+
+    $(document).on('keyup', function (e) {
+        var key = e.keyCode;
+        if (key === 40) {
+            clearInterval(go_dw);
+            go_dw = false;
+            document.getElementById("bird").style.transform = 'rotate(0deg)';
+        }
+    });
+
+    //prevent right click on mouse
+    document.addEventListener("contextmenu", function(e){  
         e.preventDefault();
     }, false);
 
-    document.getElementById("flap").addEventListener("touchstart", touchHandler, false);
+    //mobile touch for up & down
+    document.getElementById("flapdown").addEventListener("touchstart", touchHandler, false);
     function touchHandler(e) {    
+        if (go_dw === false && game_over === false) {
+                e.preventDefault();
+                go_dw = setInterval(go_down, 50);
+            }
+        } 
+    document.getElementById("flapdown").addEventListener("touchend", function(e){
+        clearInterval(go_dw);
+        go_dw = false;
+        document.getElementById("bird").style.transform = 'rotate(0deg)';
+        e.preventDefault();
+    }, false);
+    
+
+    document.getElementById("flap").addEventListener("touchstart", touchHandler1, false);
+    function touchHandler1(e) {    
         if (go_up === false && game_over === false) {
                 e.preventDefault();
                 go_up = setInterval(up, 50);
@@ -202,20 +260,32 @@ function play() {
     document.getElementById("flap").addEventListener("touchend", function(e){
         clearInterval(go_up);
         go_up = false;  
+        document.getElementById("bird").style.transform = 'rotate(0deg)';
         e.preventDefault();
     }, false);
-    
+
 
     function go_down() {
         document.getElementById("bird").style.transform = 'rotate(45deg)';
-        bird.css('top', parseInt(bird.css('top')) + 5);
+        bird.css('top', parseInt(bird.css('top')) + 10);
+        if (!$('#sound').hasClass('active')){
+            flapsound.pause();
+        } else {
+            flapsound.play();
+        }
     }
 
     function up() {
-        document.getElementById("bird").style.transform = 'rotate(0deg)';
-        bird.css('top', parseInt(bird.css('top')) - 12);
-        flapsound.play();
+        document.getElementById("bird").style.transform = 'rotate(-45deg)';
+        bird.css('top', parseInt(bird.css('top')) - 10);
+        if (!$('#sound').hasClass('active')){
+            flapsound.pause();
+        } else {
+            flapsound.play();
+        }
     }
+
+
 
     function stop_the_game() {
         clearInterval(the_game);
@@ -224,10 +294,9 @@ function play() {
             document.getElementById("gameover").style.display = "none";
             document.getElementById("restart_btn").style.display = "flex";
             document.getElementById("score_div").style.color = "lightgray";
-            restart_btn.slideDown();
-            // document.getElementById("flap").style.display = "none";
          },3000); 
     }
+    
     
     restart_btn1.click(function () {
         location.reload();
