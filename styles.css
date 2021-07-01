@@ -10,7 +10,9 @@
   -moz-osx-font-smoothing: grayscale; 
 }
 :root {
-  --hole:80px;
+  --hole:65px;
+  --holedesktop:70px;
+  
 }
 body {
   background-color: lightGray;
@@ -22,7 +24,7 @@ body {
   align-items: center;
   background-color: #0b52ff;
   border: 2px solid rgb(255, 255, 255);
-  width: 70%;
+  width: 50%;
   height:80px;
   margin:15px auto 20px auto;
   padding:5px 15px;
@@ -41,12 +43,12 @@ body {
   
 }
 .brand .wrapper .p1 {
-  font-size: 30px;
+  font-size: 22px;
   text-align:center;
   margin-bottom:5px;
 }
 .brand .wrapper .p2 {
-  font-size: 10px;
+  font-size: 6px;
 }
 .brand .wrapper .p2 span {
   font-size: 16px;
@@ -68,7 +70,7 @@ body {
 #container {
   position: relative;
   height: calc(100vh - 125px);
-  width: 70%;
+  width: 50%;
   border: 4px solid #0b52ff;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   margin-left: auto;
@@ -157,7 +159,32 @@ body {
   margin-left:10px;
   font-size: 15px;
 }
-
+#container #sound {
+  position:absolute;
+  top:3px;
+  left:3px;
+  z-index:999999999;
+  cursor:pointer;
+  width:30px;
+  height:30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgrey;
+  color:#0b52ff;
+  font-size:18px;
+  outline:0;
+  border:0;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+  border-radius:50%;
+  transition:transform 0.3s ease;
+}
+#container #sound:active {
+  transform:scale(0.88);
+}
+#container #sound:hover {
+  background-color: #fff;
+}
 
 #container #gameover  {
   width:50%;
@@ -177,6 +204,7 @@ body {
   transform:translate(-50%,-50%);
   display:none;
   z-index:10000;
+  user-select: none;
 }
 @keyframes gameover { 50% { background-color:rgba(255, 0, 0, 0.9) ; }  }
 
@@ -185,7 +213,7 @@ body {
   margin-bottom:5px;
 }
 #container #gameover p {
-  text-align:center; 
+  text-align:center;
 }
 #container #gameover p .score1{
   margin-top:5px;
@@ -193,20 +221,26 @@ body {
 }
 #bird {
   position: absolute;
-  background: url('img/ilc.svg');
-  height: 50px;
-  width: 50px;
-  background-size: contain;
+  background: url('img/rocket.png');
+  height: 43px;
+  width: 120px;
+  background-size: cover;
   background-repeat: no-repeat;
-  top: 10%;
+  top: 50%;
   left: 10%;
-  bottom:90%;
+  bottom:50%;
   z-index: 9997;
 }
+#bird.downing {
+  top: calc(100vh - 275px) !important;
+  transform: rotate(180deg) !important;
+  transition: transform 2s ease-in-out, top 2s ease-out;
+}
+
 .grand {
   background: #1b2735; 
-  background: -webkit-linear-gradient(to right, #0c0f15, #f5f5f5, #0c0f15); 
-  background: linear-gradient(to right, #0c0f15, #f5f5f5, #0c0f15);
+  background: -webkit-linear-gradient(to right, #00297b, #10335a, #00297b); 
+  background: linear-gradient(to right, #00297b, #10335a, #00297b);
   width:100%;
   height:100px;
   position: absolute;
@@ -217,28 +251,28 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-left:20px;
-  padding-right:10px;
+  padding-right:20px;
 }
-.grand #flap {
+.grand #flap, .grand #flapdown {
   cursor:pointer;
-  width:70px;
-  height:70px;
+  width:60px;
+  height:60px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(11, 80, 255, 0.507);
   color:rgb(255, 255, 255);
-  font-size:20px;
+  font-size:30px;
   outline:0;
   border:0;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
   border-radius:50%;
   transition:transform 0.3s ease;
 }
-.grand #flap:active {
+.grand #flap:active, .grand #flapdown:active {
   transform:scale(0.88);
 }
-.grand #flap:hover {
+.grand #flap:hover, .grand #flapdown:hover {
   background-color: rgba(11, 80, 255, 0.377);
 }
 .grand .rightside {
@@ -248,28 +282,7 @@ body {
   margin-left:10px;
   margin-right:10px;
 }
-.grand .rightside #sound {
-  cursor:pointer;
-  width:30px;
-  height:30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: lightgrey;
-  color:#0b52ff;
-  font-size:18px;
-  outline:0;
-  border:0;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
-  border-radius:50%;
-  transition:transform 0.3s ease;
-}
-.grand .rightside #sound:active {
-  transform:scale(0.88);
-}
-.grand .rightside #sound:hover {
-  background-color: #fff;
-}
+
 .grand .rightside #score_div {
   align-self:flex-start;
   justify-self: flex-end;
@@ -283,7 +296,7 @@ body {
 
 .pole {
   position: absolute;
-  height: calc((var(--vh, 1vh) * 100) / 2 - var(--hole)*2);
+  height: calc((var(--vh, 1vh) * 100) / 2 - var(--holedesktop)*2);
   width: 50px;
   background-color: #0b52ff;
   right: -50px;
@@ -307,7 +320,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
+  z-index: 10000000000000;
 }
 #restart_btn img {
   margin-bottom:10px;
@@ -513,10 +526,10 @@ body {
 
 @media screen and (max-width:850px) {
   .brand {
-    width:90%;
+    width:75%;
   }
   #container {
-    width:90%;
+    width:75%;
   }
   #restart_btn1, #submit_score {
     font-size: 17px;
@@ -527,7 +540,7 @@ body {
     font-size: 25px;
   }
   .brand .wrapper .p2 {
-    font-size: 8px;
+    font-size: 7px;
   }
   #container #gameover {
     width:80%;
@@ -542,20 +555,13 @@ body {
   
 }
 @media screen and (max-width:566px) {
-  .brand .wrapper .p2 {
+  /* .brand .wrapper .p2 {
     font-size: 7px;
-  }
+  } */
   .grand .rightside #score_div {
     font-size: 10px;
     align-self: flex-end;
   }
-
-  #container #backdrop #play {
-    font-size: 18px;
-  }
-
-}
-@media screen and (max-width:540px) {
   .brand {
     display: none;
   }
@@ -564,6 +570,22 @@ body {
     height: calc(var(--vh, 1vh) * 100);
     width:100%;
   }
+  #container #backdrop #play {
+    font-size: 18px;
+  }
+  #bird {
+    height: 30px;
+    width: 83px;
+  }
+  #bird.downing {
+    top: calc((var(--vh, 1vh) * 100) - 140px) !important;
+    transform: rotate(180deg) !important;
+    transition: transform 2s ease-in-out, top 2s ease-out;
+  }
+
+}
+@media screen and (max-width:540px) {
+  
   #scorePopUp .wrapper {
     flex-direction: column;
   }
