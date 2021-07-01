@@ -23,7 +23,7 @@
      <img src="img/ilc.svg" class="logo" alt="ilcoin-logo">
      <div class="wrapper">
       <p class = "p1">ILCOIN HODL</p>
-      <p class = "p2">How long can you HODL? Press <span>&#11014;&#65039;</span> to jump </p>
+      <p class = "p2">How long can you HODL? Press <span>&#11014;&#65039;</span> to up <span>&#11015;&#65039;</span> to down </p>
      </div>
    </div>
 
@@ -71,9 +71,10 @@
      </div>
 
      <div class="grand">
-        <button id="flap"> 
-          <i class="fas fa-hand-pointer"></i>
+        <button id="flapdown"> 
+          <i class="far fa-arrow-alt-circle-down"></i>
         </button>
+
         <div class="rightside">
           <div id="score_div">
             <p>
@@ -81,13 +82,14 @@
               <span id="score">0</span>
               <span class="ilc">ILC</span>
             </p>
-            <p><b>Speed: </b><span id="speed">4</span></p>
+            <p><b>Speed: </b><span id="speed"></span></p>
          </div> 
-          
-          <button id="sound">
-            <i class="fas fa-volume-mute"></i>
-          </button>
         </div>
+
+        <button id="flap"> 
+        <i class="far fa-arrow-alt-circle-up"></i>
+        </button>
+        
      </div>
 
 
@@ -112,7 +114,9 @@
         </form>
       </div>
 
-     
+      <button id="sound">
+            <i class="fas fa-volume-mute"></i>
+      </button>
 
    </div>
    
@@ -143,6 +147,7 @@
      
    </script>
 
+
     <?php
     function isMobileDevice() {
       return preg_match("/(android|webos|avantgo|iphone|ipad|ipod|blackberry|iemobile|bolt|boost|cricket|docomo|fone|hiptop|mini|opera mini|kitkat|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
@@ -150,12 +155,14 @@
     if(isMobileDevice()){?>
       <script>
       document.getElementById("flap").style.display = "block";
+      document.getElementById("flapdown").style.display = "block";
     </script>
     <?php
     }
     else { ?>
       <script>
         document.getElementById("flap").style.display = "none";
+        document.getElementById("flapdown").style.display = "none";
         $('.grand .rightside')[0].style.flex="1";
         $('.grand .rightside #score_div')[0].style.alignSelf = "initial";
       </script>
