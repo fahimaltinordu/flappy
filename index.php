@@ -19,12 +19,16 @@
     </style>
   </head>
   <body>
-   <div class="brand">
+   <div id="brand">
      <img src="img/ilc.svg" class="logo" alt="ilcoin-logo">
      <div class="wrapper">
       <p class = "p1">ILCOIN HODL</p>
       <p class = "p2">How long can you HODL? Press <span>&#11014;&#65039;</span> to up <span>&#11015;&#65039;</span> to down </p>
      </div>
+   </div>
+
+   <div id="mobile">
+     <p>You can play only mobile version from your smartphone</p>
    </div>
 
    <div id="container">
@@ -46,7 +50,9 @@
         </div>
       </div>
 
-      <div id="bird"></div>
+      <div id="bird">
+        <img id="birdimage" src="img/ilc.svg" alt="">
+      </div>
       <div id="pole_1" class="pole"></div>
       <div id="pole_2" class="pole"></div>
       <div id='stars'></div>
@@ -105,6 +111,7 @@
             <label for="address">ILC Address</label>
             <input type="text" name="address" id="address" >
           </div>
+          <small>score must be more than 100 to submit</small>
           <div class="wrapper">
             <label for="ilcscore">Score</label>
             <input type="number" name="ilcscore" id="ilcscore" readonly>
@@ -122,31 +129,21 @@
    
    <script src="js/jquery.min.js"></script>
    <script src="js/game.js"></script>
-   
-   <script>
-     document.getElementById("submit_score").addEventListener('click', function() {
-      if ($('#nickname').val().length != 0 && $('#address').val().length != 0) {
-          $('#submitscore').attr('disabled', false); 
-        } else {
-          $('#submitscore').attr('disabled',true);
-        }
-     })
 
-      $('#nickname, #address').keyup(function(){
-        if($('#nickname').val().length !=0 && $('#address').val().length !=0)
-            $('#submitscore').attr('disabled', false);           
-        else
-            $('#submitscore').attr('disabled',true);
-      })
-
-      $('#nickname, #address').on('keypress', function(e) {
-          if (e.which == 32){
+    <script>
+      $(document).keydown(function (event) {
+          if (event.keyCode == 123) { // Prevent F12
+              return false;
+          } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
               return false;
           }
       });
-     
-   </script>
 
+      //prevent right click on mouse
+      document.addEventListener("contextmenu", function(e){  
+          e.preventDefault();
+      }, false);
+    </script>
 
     <?php
     function isMobileDevice() {
@@ -156,11 +153,15 @@
       <script>
       document.getElementById("flap").style.display = "block";
       document.getElementById("flapdown").style.display = "block";
+      document.getElementById("mobile").style.display = "none";
+      document.getElementById("brand").style.display = "none";
+
     </script>
     <?php
     }
     else { ?>
       <script>
+        document.getElementById("container").style.display = "none";
         document.getElementById("flap").style.display = "none";
         document.getElementById("flapdown").style.display = "none";
         $('.grand .rightside')[0].style.flex="1";

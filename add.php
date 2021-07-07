@@ -52,7 +52,7 @@
 <body>
 
 <?php
-
+   
     $servername = "localhost";
     $database = "leaderboard";
     $username = "root";
@@ -65,48 +65,75 @@
     } else { 
         $nickname= $_POST["nickname"];
         $address= $_POST["address"];
-        $ilcscore= $_POST["ilcscore"]; ?>
-        
+        $ilcscore= $_POST["ilcscore"]; 
+        $sql_u = "SELECT * FROM leaderboard WHERE nickname='$nickname'";
+        $res_u = mysqli_query($baglanti, $sql_u);
 
 
-       <?php if (!empty($nickname) && !empty($address)) {
-            $add = "insert into leaderboard (nickname,address,score) values ('$nickname','$address','$ilcscore')";
-            $added = mysqli_query($baglanti,$add);
-            if ($added) { ?>
-                <div id="notificationS">
-                    Score submitted successfully, you will be forwarded to scoreboard in 3 seconds.
-                </div>
-                <script>
-                setTimeout(function(){
-                    document.getElementById("notificationS").style.display="none";
-                    location.href="index.php";
-                }, 3000);
-            </script>
-            <?php    
-            } else { ?>
-                <div id="notificationF">
-                    Score submitted failed, play again.
-                </div>
-                <script>
-                setTimeout(function(){
-                    document.getElementById("notificationF").style.display="none";
-                    location.href="index.php";
-                }, 3000);
-            </script>
-            <?php } 
+        if (!empty($nickname) && !empty($address) && $ilcscore < 1000)  {
+            if (mysqli_num_rows($res_u) > 0) {
+                $updt = "UPDATE leaderboard SET score = '$ilcscore' WHERE nickname = '$nickname' AND score < '$ilcscore'";
+                $updted = mysqli_query($baglanti,$updt); 
+                if ($updted) { ?>
+                    <div id="notificationS">
+                        Your old score updated, higher one is valid, you will be forwarded to game.
+                    </div>
+                    <script>
+                    setTimeout(function(){
+                        document.getElementById("notificationS").style.display="none";
+                        location.href="index.php";
+                    }, 3000);
+                </script>
+                <?php    
+                }     
+            } else {
+                $add = "insert into leaderboard (nickname,address,score) values ('$nickname','$address','$ilcscore')";
+                $added = mysqli_query($baglanti,$add);
+                if ($added) { ?>
+                    <div id="notificationS">
+                        Score submitted successfully, you will be forwarded to to game.
+                    </div>
+                    <script>
+                    setTimeout(function(){
+                        document.getElementById("notificationS").style.display="none";
+                        location.href="index.php";
+                    }, 3000);
+                </script>
+                <?php    
+                } else { ?>
+                    <div id="notificationF">
+                        Score submission failed, play again.
+                    </div>
+                    <script>
+                    setTimeout(function(){
+                        document.getElementById("notificationF").style.display="none";
+                        location.href="index.php";
+                    }, 3000);
+                </script>
+                <?php }
+            }
         } else { ?>
             <div id="notificationM">
-                Please fill out the nickname and/or ILC address field.
+                Please fill out the nickname and/or ILC address field, or you are SCAMMER
             </div>
             <script>
                 setTimeout(function(){
                     document.getElementById("notificationM").style.display="none";
+                    location.href="index.php";
                 }, 3000);
             </script>
         <?php } 
+
+        
+        
+
+
+        
+       
         }
         ?>
 
 
 </body>
 </html>
+

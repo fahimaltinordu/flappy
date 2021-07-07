@@ -38,6 +38,7 @@ function play() {
     //saving dom objects to variables
     var container = $('#container');
     var bird = $('#bird');
+    var birdimage = $('#birdimage');
     var pole = $('.pole');
     var pole_1 = $('#pole_1');
     var pole_2 = $('#pole_2');
@@ -88,18 +89,18 @@ function play() {
             },3000); 
         }
         
-        if (collision(bird, pole_1)) {
+        if (collision(birdimage, pole_1)) {
             var element = document.getElementById("pole_1");
             element.classList.add("poleCrash");
 
-        } else if (collision(bird, pole_2)) {
+        } else if (collision(birdimage, pole_2)) {
             var element = document.getElementById("pole_2");
             element.classList.add("poleCrash");
  
         }
 
         
-        if (collision(bird, pole_1) || collision(bird, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height - grand_height ) {
+        if (collision(birdimage, pole_1) || collision(birdimage, pole_2) || parseInt(bird.css('top')) <= 0 || parseInt(bird.css('top')) > container_height - bird_height - grand_height ) {
             
             if (!$('#sound').hasClass('active')){
                 hitsound.pause();
@@ -312,6 +313,7 @@ function play() {
 
     var useraddress  = localStorage.getItem("useraddress");
     var usernick  = localStorage.getItem("usernick");
+    
     $("#address").val(useraddress);
     $("#nickname").val(usernick);
     submitScorData.click(function() {
@@ -328,7 +330,28 @@ function play() {
         e.preventDefault();
     });
     
-    
+    // skor gönderme & buton dissable
+    document.getElementById("submit_score").addEventListener('click', function() {
+       if ($('#nickname').val().length != 0 && $('#address').val().length != 0 && $('#ilcscore').val().length > 2) {
+           $('#submitscore').attr('disabled', false); 
+         } else {
+           $('#submitscore').attr('disabled',true);
+         }
+      })
+ 
+    $('#nickname, #address').keyup(function(){
+        if($('#nickname').val().length !=0 && $('#address').val().length !=0 && $('#ilcscore').val().length > 2 )
+            $('#submitscore').attr('disabled', false);           
+        else
+            $('#submitscore').attr('disabled',true);
+    })
+
+    //boşluk yazmasını engeller
+    $('#nickname, #address').on('keypress', function(e) {
+        if (e.which == 32){
+            return false;
+        }
+    });
 
     function collision($div1, $div2) {
         var x1 = $div1.offset().left;

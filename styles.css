@@ -18,39 +18,39 @@ body {
   background-color: lightGray;
   max-height:100vh; 
 }
-.brand {
+#brand {
   display:flex;
   justify-content: center;
   align-items: center;
   background-color: #0b52ff;
   border: 2px solid rgb(255, 255, 255);
-  width: 50%;
+  width: 100%;
   height:80px;
   margin:15px auto 20px auto;
   padding:5px 15px;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
 }
-.brand img.logo {
+#brand img.logo {
   height:105px;
   margin-right:15px;
   filter: drop-shadow(0 0 0.15rem black);
   user-select:none;
 }
-.brand .wrapper .p1, .brand .wrapper .p2 {
+#brand .wrapper .p1, #brand .wrapper .p2 {
   color: rgb(255, 255, 255);
   text-shadow: 2px 1px #000000;
   user-select:none;
   
 }
-.brand .wrapper .p1 {
+#brand .wrapper .p1 {
   font-size: 22px;
   text-align:center;
   margin-bottom:5px;
 }
-.brand .wrapper .p2 {
+#brand .wrapper .p2 {
   font-size: 6px;
 }
-.brand .wrapper .p2 span {
+#brand .wrapper .p2 span {
   font-size: 16px;
 }
 
@@ -67,6 +67,17 @@ body {
 @keyframes blink { 50% { border-color:rgba(255, 0, 0, 0.9) ; }  }
 @keyframes poleblink { 50% { background-color:rgba(255, 0, 0, 0.9) ; }  }
 
+#mobile {
+  width:100%;
+  text-align: center;
+  height:200px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff790b;
+  color:white;
+}
+
 #container {
   position: relative;
   height: calc(100vh - 125px);
@@ -76,6 +87,7 @@ body {
   margin-left: auto;
   margin-right:auto;
   overflow: hidden;
+  /* display:none; */
 }
 #container #backdrop {
   position:absolute;
@@ -230,6 +242,13 @@ body {
   left: 10%;
   bottom:50%;
   z-index: 9997;
+}
+#bird img#birdimage {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 42%;
+  top: 2px;
 }
 #bird.downing {
   top: calc(100vh - 275px) !important;
@@ -525,21 +544,21 @@ body {
 
 
 @media screen and (max-width:850px) {
-  .brand {
+  /* .brand {
     width:75%;
-  }
-  #container {
+  } */
+  /* #container {
     width:75%;
-  }
+  } */
   #restart_btn1, #submit_score {
     font-size: 17px;
   }
 }
 @media screen and (max-width:700px) {
-  .brand .wrapper .p1 {
+  #brand .wrapper .p1 {
     font-size: 25px;
   }
-  .brand .wrapper .p2 {
+  #brand .wrapper .p2 {
     font-size: 7px;
   }
   #container #gameover {
@@ -562,9 +581,9 @@ body {
     font-size: 10px;
     align-self: flex-end;
   }
-  .brand {
+  /* .brand {
     display: none;
-  }
+  } */
   #container {
     height: 100vh; 
     height: calc(var(--vh, 1vh) * 100);
@@ -576,6 +595,12 @@ body {
   #bird {
     height: 30px;
     width: 83px;
+  }
+  #bird img#birdimage {
+    width: 24px;
+    height: 24px;
+    left: 40%;
+    top: 0px;
   }
   #bird.downing {
     top: calc((var(--vh, 1vh) * 100) - 140px) !important;
@@ -627,7 +652,7 @@ body {
 }
 
 @media screen and (max-height:400px) {
-  .brand {
+  #brand {
     display: none;
   }
   #container {
