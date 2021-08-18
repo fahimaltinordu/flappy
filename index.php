@@ -101,7 +101,7 @@
 
 
      <div id="scorePopUp">
-        <form action="add.php" method="post" id="form1">
+        <form action="addscore.php" method="post" id="form1">
           <div class="wrapper">
             <label for="nickname">Nickname</label>
             <input type="text" name="nickname" id="nickname" minlength="3" maxlength="16">
@@ -143,6 +143,21 @@
       document.addEventListener("contextmenu", function(e){  
           e.preventDefault();
       }, false);
+
+      //reload the page with resize
+      jQuery(function($){
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+      
+        $(window).resize(function() {
+          if(windowWidth != $(window).width() || windowHeight != $(window).height()) {
+            location.reload();
+            return;
+          }
+        });
+      });
+      
+
     </script>
 
     <?php
