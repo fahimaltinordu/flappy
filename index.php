@@ -145,17 +145,23 @@
       }, false);
 
       //reload the page with resize
-      jQuery(function($){
-        var windowWidth = $(window).width();
-        var windowHeight = $(window).height();
+      window.addEventListener('resize', reportWindowSize);
+      function reportWindowSize() {
+        location.replace(location.href);
+      }
+
+
+      // jQuery(function($){
+      //   var windowWidth = $(window).width();
+      //   var windowHeight = $(window).height();
       
-        $(window).resize(function() {
-          if(windowWidth != $(window).width() || windowHeight != $(window).height()) {
-            location.reload();
-            return;
-          }
-        });
-      });
+      //   $(window).resize(function() {
+      //     if(windowWidth != $(window).width() || windowHeight != $(window).height()) {
+      //       location.reload();
+      //       return;
+      //     }
+      //   });
+      // });
       
 
     </script>
